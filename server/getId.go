@@ -5,14 +5,14 @@ import (
 	"strconv"
 )
 
-func GetID(idStr string) (int, error) {
+func GetID(artistsPage []artists, idStr string) (int, error) {
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		return 0, err
 	}
 
-	if id < 1 || id > len(ArtistsPage) || idStr[0] == '0' {
-		err = errors.New("Not Found")
+	if id < 1 || id > len(artistsPage) || idStr[0] == '0' {
+		err = errors.New("not found")
 	}
 	return id - 1, err
 }
