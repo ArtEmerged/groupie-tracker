@@ -1,0 +1,69 @@
+{
+    "response": {
+        "GeoObjectCollection": {
+            "metaDataProperty": {
+                "GeocoderResponseMetaData": {
+                    "request": "amsterdam-netherlands",
+                    "results": "1",
+                    "found": "1"
+                }
+            },
+            "featureMember": [
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Нидерланды, Амстердам",
+                                "kind": "locality",
+                                "Address": {
+                                    "country_code": "NL",
+                                    "formatted": "Нидерланды, Амстердам",
+                                    "Components": [
+                                        {
+                                            "kind": "country",
+                                            "name": "Нидерланды"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Северная Голландия"
+                                        },
+                                        {
+                                            "kind": "locality",
+                                            "name": "Амстердам"
+                                        }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Нидерланды, Амстердам",
+                                        "CountryNameCode": "NL",
+                                        "CountryName": "Нидерланды",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Северная Голландия",
+                                            "Locality": {
+                                                "LocalityName": "Амстердам"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "Амстердам",
+                        "description": "Нидерланды",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "4.729136 52.32173",
+                                "upperCorner": "4.977278 52.429339"
+                            }
+                        },
+                        "uri": "ymapsbm1://geo?data=CgoyMjI4MTYzMzE2EiVLb25pbmtyaWprIGRlciBOZWRlcmxhbmRlbiwgQW1zdGVyZGFtIgoN14-cQBUDflFC",
+                        "Point": {
+                            "pos": "4.892557 52.373057"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

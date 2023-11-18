@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Быстрый старт. Размещение интерактивной карты на странице</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/v3/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
+    <script>
+      initMap();
+      async function initMap() {
+          await ymaps.ready;
+          const { YMap, YMapDefaultSchemeLayer } = ymaps;
+          const map = new YMap(
+              document.getElementById('map'),
+              {
+                  center: [37.588144, 55.733842],
+                  zoom: 2
+              }
+          );
+          
+          // Corrected line: use map.geoObjects instead of map.GeoObject
+          map.geoObjects
+              .add(new ymaps.Placemark([55.684758, 37.738521], {}, {
+                  preset: 'islands#icon',
+                  iconColor: '#0095b6'
+              }))
+              .add(new ymaps.Placemark([55.687086, 37.529789], {
+                  balloonContent: 'цвет <strong>влюбленной жабы</strong>'
+              }, {
+                  preset: 'islands#circleIcon',
+                  iconColor: '#3caa3c'
+              }))
+              .add(new ymaps.Placemark([55.642063, 37.656123], {
+                  balloonContent: 'цвет <strong>красный</strong>'
+              }, {
+                  preset: 'islands#redSportIcon'
+              }));
+          
+          map.layers.add(new YMapDefaultSchemeLayer({ theme: 'dark' }));
+      }
+  </script>
+  </head>
+
+  <body>
+    <div id="map" style="width: 1300px; height: 600px"></div>
+  </body>
+</html>
