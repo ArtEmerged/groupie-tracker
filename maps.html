@@ -3,41 +3,51 @@
   <head>
     <title>Быстрый старт. Размещение интерактивной карты на странице</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://api-maps.yandex.ru/v3/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
     <script>
-      initMap();
-      async function initMap() {
-          await ymaps.ready;
-          const { YMap, YMapDefaultSchemeLayer } = ymaps;
-          const map = new YMap(
-              document.getElementById('map'),
-              {
-                  center: [37.588144, 55.733842],
-                  zoom: 2
-              }
-          );
-          
-          // Corrected line: use map.geoObjects instead of map.GeoObject
-          map.geoObjects
-              .add(new ymaps.Placemark([55.684758, 37.738521], {}, {
-                  preset: 'islands#icon',
-                  iconColor: '#0095b6'
-              }))
-              .add(new ymaps.Placemark([55.687086, 37.529789], {
-                  balloonContent: 'цвет <strong>влюбленной жабы</strong>'
-              }, {
-                  preset: 'islands#circleIcon',
-                  iconColor: '#3caa3c'
-              }))
-              .add(new ymaps.Placemark([55.642063, 37.656123], {
-                  balloonContent: 'цвет <strong>красный</strong>'
-              }, {
-                  preset: 'islands#redSportIcon'
-              }));
-          
-          map.layers.add(new YMapDefaultSchemeLayer({ theme: 'dark' }));
-      }
-  </script>
+        ymaps.ready(init);
+
+        function init() {
+            const map = new ymaps.Map(
+                document.getElementById('map'),
+                {
+                    center: [37.588144, 55.733842],
+                    zoom: 2
+                }
+            );
+
+            // Первый маркер
+            const marker1 = new ymaps.Placemark(
+                [37.588144, 55.733842],
+                {
+                    balloonContent: "I'm marker 1!",
+                },
+                {
+                    draggable: true,
+                }
+            );
+            map.geoObjects.add(marker1);
+
+            // Второй маркер
+            const marker2 = new ymaps.Placemark(
+                [40.5, 55.8],  // Ваши координаты для второго маркера
+                {
+                    balloonContent: "I'm marker 2!",
+                },
+                {
+                    draggable: true,
+                }
+            );
+            map.geoObjects.add(marker2);
+
+            // Удаление ненужных элементов управления
+            map.controls.remove('searchControl');
+            map.controls.remove('trafficControl');
+            map.controls.remove('layersControl');
+            map.controls.remove('zoomControl');
+            map.controls.remove('geolocationControl');
+        }
+    </script>
   </head>
 
   <body>
