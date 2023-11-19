@@ -13,7 +13,7 @@ var (
 )
 
 func init() {
-	temp, initErr := template.ParseGlob("./web/templates/*.html")
+	temp, initErr := template.ParseGlob("./web/templates/*")
 	tpl = template.Must(temp, initErr)
 }
 
@@ -25,6 +25,7 @@ type artists struct {
 	CreationDate int                 `json:"creationDate"`
 	FirstAlbum   string              `json:"firstAlbum"`
 	Relations    map[string][]string `json:"-"`
+	Markers []Markers
 }
 
 type relation struct {
