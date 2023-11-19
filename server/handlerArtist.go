@@ -29,11 +29,15 @@ func artistHandler(w http.ResponseWriter, r *http.Request, artistsPage []artists
 	}
 	oneArtist := artistsPage[id]
 	oneArtist.Relations = relations.Index[id].DatesLocations
-	MapApi(&oneArtist)
+	err = requestMapApi(&oneArtist)
+	if err != nil {
+		errPage(w, http.StatusInternalServerError) // 500
+		return
+	}
 	fmt.Println(oneArtist)
 	err = tpl.ExecuteTemplate(w, "artist.html", oneArtist)
 	if err != nil {
-		errPage(w, http.StatusInternalServerError)
+		errPage(w, http.StatusInternalServerError) // 500
 		return
 	}
 }
