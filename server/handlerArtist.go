@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"net/http"
 )
 
@@ -28,6 +29,8 @@ func artistHandler(w http.ResponseWriter, r *http.Request, artistsPage []artists
 	}
 	oneArtist := artistsPage[id]
 	oneArtist.Relations = relations.Index[id].DatesLocations
+	MapApi(&oneArtist)
+	fmt.Println(oneArtist)
 	err = tpl.ExecuteTemplate(w, "artist.html", oneArtist)
 	if err != nil {
 		errPage(w, http.StatusInternalServerError)
