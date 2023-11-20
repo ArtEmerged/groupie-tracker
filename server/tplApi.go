@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	Bands	[]Artists
 	tpl     *template.Template
 	initErr error
 )
