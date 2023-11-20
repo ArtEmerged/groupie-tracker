@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	// server.Running()
-	server.MapApi()
+	server.Running()
+	server.MapApiTest()
 }
