@@ -24,7 +24,7 @@ func convertCoordinates(s string) (float64, float64, error) {
 	x, err := strconv.ParseFloat(coord[0], 64)
 	y, err1 := strconv.ParseFloat(coord[1], 64)
 	if err != nil {
-		log.Fatal("3", err)
+		log.Println("3", err)
 	}
 	if err1 != nil {
 		errors.Join(err, err1)

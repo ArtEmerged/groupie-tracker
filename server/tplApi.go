@@ -25,7 +25,8 @@ type artists struct {
 	CreationDate int                 `json:"creationDate"`
 	FirstAlbum   string              `json:"firstAlbum"`
 	Relations    map[string][]string `json:"-"`
-	Markers []markers
+	Markers      []markers
+	CountMark    int
 }
 
 type relation struct {

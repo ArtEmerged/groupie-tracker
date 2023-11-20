@@ -9,10 +9,12 @@ import (
 	"strings"
 )
 
-const apimap = "https://geocode-maps.yandex.ru/1.x/?&apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&geocode="
-const apiformat = "&format=json"
-const count = "&results=1"
-const lang = "&lang=en_RU"
+const (
+	apimap    = "https://geocode-maps.yandex.ru/1.x/?&apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&geocode="
+	apiformat = "&format=json"
+	count     = "&results=1"
+	lang      = "&lang=en_RU"
+)
 
 type hadeMarker struct {
 	Response response `json:"response"`
@@ -45,7 +47,7 @@ type markers struct {
 func MapApiTest() {
 	resp, err1 := http.Get(apimap + "london" + count + lang + apiformat)
 	if err1 != nil {
-		log.Fatal("1", err1)
+		log.Println("1", err1)
 	}
 	var data hadeMarker
 	buff := make([]byte, 10000)
@@ -55,7 +57,7 @@ func MapApiTest() {
 	}
 	err2 := json.Unmarshal(buff[:n], &data)
 	if err2 != nil {
-		log.Fatal("2", err2)
+		log.Println("2", err2)
 	}
 	if len(data.Response.GeoObjectCollection.FeatureMember) == 0 {
 		fmt.Println("Marker:")
@@ -94,5 +96,6 @@ func requestMapApi(group *artists) error {
 		resp.Body.Close()
 	}
 	group.Markers = marker
+	group.CountMark = len(marker)
 	return nil
 }

@@ -5,48 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
     <script>
-        ymaps.ready(init);
+      // Ждем загрузки библиотеки перед вызовом initMap
+      ymaps.ready(initMap);
 
-        function init() {
-            const map = new ymaps.Map(
-                document.getElementById('map'),
-                {
-                    center: [37.588144, 55.733842],
-                    zoom: 2
-                }
-            );
+      function initMap() {
+        const map = new ymaps.Map(
+          'map',
+          {
+            center: [55.733842, 37.588144],
+            zoom: 2
+          }
+        );
 
-            // Первый маркер
-            const marker1 = new ymaps.Placemark(
-                [37.588144, 55.733842],
-                {
-                    balloonContent: "I'm marker 1!",
-                },
-                {
-                    draggable: true,
-                }
-            );
-            map.geoObjects.add(marker1);
-
-            // Второй маркер
-            const marker2 = new ymaps.Placemark(
-                [40.5, 55.8],  // Ваши координаты для второго маркера
-                {
-                    balloonContent: "I'm marker 2!",
-                },
-                {
-                    draggable: true,
-                }
-            );
-            map.geoObjects.add(marker2);
-
-            // Удаление ненужных элементов управления
-            map.controls.remove('searchControl');
-            map.controls.remove('trafficControl');
-            map.controls.remove('layersControl');
-            map.controls.remove('zoomControl');
-            map.controls.remove('geolocationControl');
-        }
+        // Используйте geoObjects для добавления объектов на карту
+        map.geoObjects.add(new ymaps.Placemark([54, 34], { hintContent: 'Hello World!' }));
+        map.layers.add(new ymaps.Layer('yandex#map', { tileTransparent: true }));
+      }
     </script>
   </head>
 
