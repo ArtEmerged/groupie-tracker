@@ -29,7 +29,7 @@ func artistHandler(w http.ResponseWriter, r *http.Request, artistsPage []artists
 	}
 	oneArtist := artistsPage[id]
 	oneArtist.Relations = relations.Index[id].DatesLocations
-	// err = requestMapApi(&oneArtist)
+	err = requestMapApi(&oneArtist)
 	if err != nil {
 		errPage(w, http.StatusInternalServerError) // 500
 		return
