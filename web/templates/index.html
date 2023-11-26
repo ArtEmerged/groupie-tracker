@@ -5,30 +5,315 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
-    <link rel="stylesheet" href="/static/css/styles.css"/>
+    <link rel="stylesheet" href="../static/css/styles.css"/>
   </head>
   <body>
-    <header class="header">
-      <a class="header__brand" href="/" alt="home">
-        <h1>GROUPIE-TRACKER</h1>
-      </a>
+    <header class="header container">
+      <div class="header__div">
+        <div class="header__logo">
+          <p>// music group</p>
+        </div>
+        <div class="header__main">
+          <p class="header__alm">AL&#123;M</p>
+          <form action="#" class="header__input">
+            <p>&#123;</p>
+            <input type="search">
+            <p>&#125;</p>
+            <button class="headersvg">
+          </button>
+          </form>
+          <p class="header__filtres">filters</p>
+        </div>
+        <div class="header__home">
+          <p>home</p>
+        </div>
+      </div>
     </header>
-    {{if .}}
+
+    <div class="line"></div>
+    
     <section class="content container">
-      {{range $i, $v := .}}
-      <a class="band" href="/artist?id={{$v.ID}}" alt="{{$v.Name}}">
-        <img class="band__banner" src="{{$v.Image}}" alt="banner of {{$v.Name}}"/>
-        <h2 class="band__name">{{$v.Name}}</h2>
+      
+      <a class="band" href="/artist?id=1" alt="Queen">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/queen.jpeg" alt="banner of Queen"/>
+        <h2 class="band__name">Queen</h2>
       </a>
-      {{end}}
+      
+      <a class="band" href="/artist?id=2" alt="SOJA">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/soja.jpeg" alt="banner of SOJA"/>
+        <h2 class="band__name">SOJA</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=3" alt="Pink Floyd">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/pinkfloyd.jpeg" alt="banner of Pink Floyd"/>
+        <h2 class="band__name">Pink Floyd</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=4" alt="Scorpions">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/scorpions.jpeg" alt="banner of Scorpions"/>
+        <h2 class="band__name">Scorpions</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=5" alt="XXXTentacion">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/xxxtentacion.jpeg" alt="banner of XXXTentacion"/>
+        <h2 class="band__name">XXXTentacion</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=6" alt="Mac Miller">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/macmiller.jpeg" alt="banner of Mac Miller"/>
+        <h2 class="band__name">Mac Miller</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=7" alt="Joyner Lucas">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/joynerlucas.jpeg" alt="banner of Joyner Lucas"/>
+        <h2 class="band__name">Joyner Lucas</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=8" alt="Kendrick Lamar">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/kencricklamar.jpeg" alt="banner of Kendrick Lamar"/>
+        <h2 class="band__name">Kendrick Lamar</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=9" alt="ACDC">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/acdc.jpeg" alt="banner of ACDC"/>
+        <h2 class="band__name">ACDC</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=10" alt="Pearl Jam">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/pearljam.jpeg" alt="banner of Pearl Jam"/>
+        <h2 class="band__name">Pearl Jam</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=11" alt="Katy Perry">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/katyperry.jpeg" alt="banner of Katy Perry"/>
+        <h2 class="band__name">Katy Perry</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=12" alt="Rihanna">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/rihanna.jpeg" alt="banner of Rihanna"/>
+        <h2 class="band__name">Rihanna</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=13" alt="Genesis">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/genesis.jpeg" alt="banner of Genesis"/>
+        <h2 class="band__name">Genesis</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=14" alt="Phil Collins">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/philcollins.jpeg" alt="banner of Phil Collins"/>
+        <h2 class="band__name">Phil Collins</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=15" alt="Led Zeppelin">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/ledzeppelin.jpeg" alt="banner of Led Zeppelin"/>
+        <h2 class="band__name">Led Zeppelin</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=16" alt="The Jimi Hendrix Experience">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/jimihendrix.jpeg" alt="banner of The Jimi Hendrix Experience"/>
+        <h2 class="band__name">The Jimi Hendrix Experience</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=17" alt="Bee Gees">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/beegees.jpeg" alt="banner of Bee Gees"/>
+        <h2 class="band__name">Bee Gees</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=18" alt="Deep Purple">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/deeppurple.jpeg" alt="banner of Deep Purple"/>
+        <h2 class="band__name">Deep Purple</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=19" alt="Aerosmith">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/aerosmith.jpeg" alt="banner of Aerosmith"/>
+        <h2 class="band__name">Aerosmith</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=20" alt="Dire Straits">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/direstraits.jpeg" alt="banner of Dire Straits"/>
+        <h2 class="band__name">Dire Straits</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=21" alt="Mamonas Assassinas">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/mamonasassassinas.jpeg" alt="banner of Mamonas Assassinas"/>
+        <h2 class="band__name">Mamonas Assassinas</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=22" alt="Thirty Seconds to Mars">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/30.jpeg" alt="banner of Thirty Seconds to Mars"/>
+        <h2 class="band__name">Thirty Seconds to Mars</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=23" alt="Imagine Dragons">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/imagineDragons.jpeg" alt="banner of Imagine Dragons"/>
+        <h2 class="band__name">Imagine Dragons</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=24" alt="Juice Wrld">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/juiceWrld.jpeg" alt="banner of Juice Wrld"/>
+        <h2 class="band__name">Juice Wrld</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=25" alt="Logic">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/logic.jpeg" alt="banner of Logic"/>
+        <h2 class="band__name">Logic</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=26" alt="Alec Benjamin">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/alecBeenjamin.jpeg" alt="banner of Alec Benjamin"/>
+        <h2 class="band__name">Alec Benjamin</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=27" alt="Bobby McFerrins">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/bobbyMcFerrin.jpeg" alt="banner of Bobby McFerrins"/>
+        <h2 class="band__name">Bobby McFerrins</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=28" alt="R3HAB">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/R3HAB.jpeg" alt="banner of R3HAB"/>
+        <h2 class="band__name">R3HAB</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=29" alt="Post Malone">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/postmalone.jpeg" alt="banner of Post Malone"/>
+        <h2 class="band__name">Post Malone</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=30" alt="Travis Scott">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/travisScott.jpeg" alt="banner of Travis Scott"/>
+        <h2 class="band__name">Travis Scott</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=31" alt="J. Cole">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/jCole.jpeg" alt="banner of J. Cole"/>
+        <h2 class="band__name">J. Cole</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=32" alt="Nickelback">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/nickelback.jpeg" alt="banner of Nickelback"/>
+        <h2 class="band__name">Nickelback</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=33" alt="Mobb Deep">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/mobbDeep.jpeg" alt="banner of Mobb Deep"/>
+        <h2 class="band__name">Mobb Deep</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=34" alt="Guns N&#39; Roses">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/gunsNRoses.jpeg" alt="banner of Guns N&#39; Roses"/>
+        <h2 class="band__name">Guns N&#39; Roses</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=35" alt="NWA">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/nwa.jpeg" alt="banner of NWA"/>
+        <h2 class="band__name">NWA</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=36" alt="U2">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/u2.jpeg" alt="banner of U2"/>
+        <h2 class="band__name">U2</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=37" alt="Arctic Monkeys">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/arcticmonkeys.jpeg" alt="banner of Arctic Monkeys"/>
+        <h2 class="band__name">Arctic Monkeys</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=38" alt="Fall Out Boy">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/fallOutBoy.jpeg" alt="banner of Fall Out Boy"/>
+        <h2 class="band__name">Fall Out Boy</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=39" alt="Gorillaz">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/gorillaz.jpeg" alt="banner of Gorillaz"/>
+        <h2 class="band__name">Gorillaz</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=40" alt="Eagles">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/eagles.jpeg" alt="banner of Eagles"/>
+        <h2 class="band__name">Eagles</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=41" alt="Linkin Park">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/linkinpark.jpeg" alt="banner of Linkin Park"/>
+        <h2 class="band__name">Linkin Park</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=42" alt="Red Hot Chili Peppers">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/redhotchilipeppers.jpeg" alt="banner of Red Hot Chili Peppers"/>
+        <h2 class="band__name">Red Hot Chili Peppers</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=43" alt="Eminem">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/eminem.jpeg" alt="banner of Eminem"/>
+        <h2 class="band__name">Eminem</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=44" alt="Green Day">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/greenday.jpeg" alt="banner of Green Day"/>
+        <h2 class="band__name">Green Day</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=45" alt="Metallica">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/metallica.jpeg" alt="banner of Metallica"/>
+        <h2 class="band__name">Metallica</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=46" alt="Coldplay">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/coldplay.jpeg" alt="banner of Coldplay"/>
+        <h2 class="band__name">Coldplay</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=47" alt="Maroon 5">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/maroon5.jpeg" alt="banner of Maroon 5"/>
+        <h2 class="band__name">Maroon 5</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=48" alt="Twenty One Pilots">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/twentyonepilots.jpeg" alt="banner of Twenty One Pilots"/>
+        <h2 class="band__name">Twenty One Pilots</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=49" alt="The Rolling Stones">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/therollingstones.jpeg" alt="banner of The Rolling Stones"/>
+        <h2 class="band__name">The Rolling Stones</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=50" alt="Muse">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/muse.jpeg" alt="banner of Muse"/>
+        <h2 class="band__name">Muse</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=51" alt="Foo Fighters">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/foofighters.jpeg" alt="banner of Foo Fighters"/>
+        <h2 class="band__name">Foo Fighters</h2>
+      </a>
+      
+      <a class="band" href="/artist?id=52" alt="The Chainsmokers">
+        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/thechainsmokers.jpeg" alt="banner of The Chainsmokers"/>
+        <h2 class="band__name">The Chainsmokers</h2>
+      </a>
+      
     </section>
-    {{end}}
+    
     <footer class="footer">
-      <div class="container">
-        <h3 class="footer__title">Follow us on Github.com:</h3>
-        <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
-        <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+      <div class="container contfooter">
+        <div class="footer__contacnt">
+          <p class="footer__hub">Github / </p>
+          <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
+          <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+          <a class="footer__link" href="https://github.com/NordStream777" target="_blank">NordStream777</a>
+        </div>
+        <div class="footer__main">
+          <p class="footer__art">&#123; 2023 Artyom Echeistov &#125;</p>
+        </div>
+        <div class="footer__last">
+          <a class="footer__link" href="#">About project</a>
+          <a class="footer__link" href="#">Helps</a>
+          <p class="footer__hub">// MD 2023 </p>
+        </div>
       </div>
     </footer>
   </body>
 </html>
+
