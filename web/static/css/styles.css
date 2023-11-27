@@ -144,12 +144,12 @@ div{
 }
 
 .band{
-        border:1px solid #1E1C1C;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 240px;
-        text-decoration: none; 
+    border:1px solid #1E1C1C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 240px;
+    text-decoration: none; 
 }
 .band__banner{
     border-bottom: 1px solid #1E1C1C;
