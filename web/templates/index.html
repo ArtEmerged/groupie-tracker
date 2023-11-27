@@ -5,17 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
-    <link rel="stylesheet" href="/static/css/styles.css"/>
+    <link rel="stylesheet" href="../static/css/styles.css"/>
   </head>
   <body>
-    <header class="header">
-      <a class="header__brand" href="/" alt="home">
-        <h1>GROUPIE-TRACKER</h1>
-      </a>
+    <header class="header container">
+      <div class="header__div">
+        <div class="header__logo">
+          <p>// music group</p>
+        </div>
+        <div class="header__main">
+          <a class="header__alm" href="https://alem.school/" target="_blank">AL&#123;M</a>
+          <form action="#" class="header__input">
+            <p>&#123;</p>
+            <input type="search">
+            <p>&#125;</p>
+            <button class="headersvg">
+          </button>
+          </form>
+          <p class="header__filtres">filters</p>
+        </div>
+        <div class="header__home">
+          <a href="/"> home</a>
+        </div>
+      </div>
     </header>
+
+    <div class="line"></div>
     {{if .}}
     <section class="content container">
-      {{range $i, $v := .}}
+        {{range $i, $v := .}}
       <a class="band" href="/artist?id={{$v.ID}}" alt="{{$v.Name}}">
         <img class="band__banner" src="{{$v.Image}}" alt="banner of {{$v.Name}}"/>
         <h2 class="band__name">{{$v.Name}}</h2>
@@ -24,11 +42,23 @@
     </section>
     {{end}}
     <footer class="footer">
-      <div class="container">
-        <h3 class="footer__title">Follow us on Github.com:</h3>
-        <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
-        <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+      <div class="container contfooter">
+        <div class="footer__contacnt">
+          <p class="footer__hub">Github / </p>
+          <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
+          <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+          <a class="footer__link" href="https://github.com/NordStream777" target="_blank">NordStream777</a>
+        </div>
+        <div class="footer__main">
+          <p class="footer__art">&#123; 2023 Artyom Echeistov &#125;</p>
+        </div>
+        <div class="footer__last">
+          <a class="footer__link" href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/README.md" target="_blank">About project</a>
+          <a class="footer__link" href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/audit/README.md" target="_blank">Helps</a>
+          <p class="footer__hub">// MD 2023 </p>
+        </div>
       </div>
     </footer>
   </body>
 </html>
+
