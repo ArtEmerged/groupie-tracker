@@ -11,10 +11,22 @@ p{
     font-size: 16px;
     font-weight: 300;
     line-height: 48px;
+    margin: 0;
     }
 
 a{
-    text-decoration: none; 
+    text-decoration: none;
+    color: #1E1C1C;
+    font-family: DM Mono;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 48px; /* 300% */ 
+}
+
+a:hover,
+a:focus{
+    text-decoration: overline;
 }
 
 h2{
@@ -28,6 +40,17 @@ h2{
     line-height: 24px;
 }
 
+h3{
+    color: #1E1C1C;
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 27.84px;
+    margin: 0;
+    display: block;
+}
+
 input{
     height: 15px;
     border-top: none;
@@ -38,14 +61,39 @@ input{
     min-width: 200px;
 }
 
+ul{
+    padding-left: 0;
+}
+
+li{
+    color: #1E1C1C;
+    font-family: 'DM Mono';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24.12px; /* 150.75% */
+    margin-bottom: 10px;
+    position: relative;
+    list-style-type: none;
+}
+
+.list li::before {
+    content: "";
+    width: 9px;
+    height: 1px;
+    
+    background-color: #1E1C1C;
+    position: absolute;
+    left: -15px;
+    top: 12px;
+}
+
 div{ 
     background-color:white;
 }
 
     .container, .container-fluid {
         width: 100%;
-        padding-left: 16px;
-        padding-right: 16px;
         margin: 0 auto;
     }
     
@@ -85,7 +133,7 @@ div{
 .header__logo{
     flex-grow: 0;
     border-right: 1px solid;
-    padding: 14px 28px 0 28px;
+    padding: 25px 28px 0 28px;
     background-color:white;
 }
 
@@ -108,7 +156,7 @@ div{
     padding: 0 28px;
     flex-grow: 0;
     border-left: 1px solid;
-    padding-top: 14px;
+    padding-top: 25px;
 }
 
 .headersvg{
@@ -121,7 +169,11 @@ div{
 }
 
 .header__alm{
-    margin-top: 0;
+    color: #1E1C1C;
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 48px;
 }
 
 .header__filtres{
@@ -131,6 +183,15 @@ div{
 .line{
     height: 1px;
     background-color: #1E1C1C;
+}
+
+.line__header{
+    display: block;
+    margin-top: 52px;
+    margin-right: 324px;
+    height: 1px;
+    width: 230px;
+    background-color:#1E1C1C;
 }
 
 .content{
@@ -149,7 +210,15 @@ div{
     flex-direction: column;
     align-items: center;
     max-width: 240px;
-    text-decoration: none; 
+    text-decoration: none;
+}
+
+.band:hover{
+    text-shadow: 0 0 3px rgb(197, 21, 159);
+    color: rgb(197, 21, 159);
+    border: 1px solid rgb(197, 21, 159);
+    text-decoration: none;
+
 }
 .band__banner{
     border-bottom: 1px solid #1E1C1C;
@@ -215,4 +284,72 @@ div{
     font-style: normal;
     font-weight: 400;
     line-height: 27.84px; /* 198.857% */
+}
+
+.main{
+    border: 1px solid;
+    margin-top: 42px;
+    max-width: 1064px;
+    padding-bottom: 72px;
+    margin-bottom: 112px;
+}
+.artist__content{
+    padding-left: 53px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 23px;
+}
+
+.artist__label{
+    margin-top: 52px;
+}
+
+.artist__name{
+    font-weight: 500;
+    line-height: 39.44px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 28px;
+}
+
+.artist__create{
+    height: 22px;
+    margin-top: 20px;
+    line-height: 24.12px
+}
+
+.artist__first{
+    height: 21px;
+    margin-top: 20px;
+    line-height: 24.12px
+}
+
+.artist__members{
+    margin-top: 77px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list{
+    padding-left: 15px;
+}
+
+.artist__location{
+    margin-top: 77px;
+    display: flex;
+    flex-direction: column;
+}
+
+.artist__city > li{
+    margin-left: 20px;
+}
+.artist__location > ul >li{
+    margin-bottom: 0;
+}
+
+#map{
+    max-width: 920px;
+    max-height: 460px;
+    margin: 108px auto 0 auto;
+    border: 1px solid;
 }

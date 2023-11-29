@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
     
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
-    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
-    <link href="https://yandex.st/bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script> -->
+    <!-- <link href="https://yandex.st/bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet"> -->
       <script>
       ymaps.ready(function () {
           const map = new ymaps.Map(
@@ -144,53 +144,65 @@
     </script>
   </head>
   <body>
-    <header class="header">
-      <a class="header__brand" href="/" alt="home">
-        <h1>GROUPIE-TRACKER</h1>
-      </a>
+    <header class="header container">
+      <div class="header__div">
+        <div class="header__logo">
+          <p>// music group</p>
+        </div>
+        <div class="header__main">
+          <a class="header__alm" href="https://alem.school/" target="_blank" >AL&#123;M</a>
+          <div class="line__header"></div>
+        </div>
+        <div class="header__home">
+          <a href="indexStatic.html">home</a>
+        </div>
+      </div>
     </header>
-    
-    <section class="container">
+    <div class="line"></div>
+    <section class=" main container">
       <div class="artist__content">
-        <h2>SOJA</h2>
-        <img src="https://groupietrackers.herokuapp.com/api/images/soja.jpeg" alt="artistSOJA" />
-        <h3>Members</h3>
-        <ul>
+        <div class="artist__label">
+          <h2 class="artist__name">SOJA</h2>
+          <img src="https://groupietrackers.herokuapp.com/api/images/soja.jpeg" alt="artistSOJA" />
+          <p class="artist__create">Creation date: 1997</p>
+          <p class="artist__first">First album: 05-06-2002</p>
+        </div>
+        <div class="artist__members">
+          <h3>Members:</h3>
+          <ul class="list">
           
-          <li>Jacob Hemphill</li>
+            <li>Jacob Hemphill</li>
           
-          <li>Bob Jefferson</li>
+            <li>Bob Jefferson</li>
           
-          <li>Ryan &#34;Byrd&#34; Berty</li>
+            <li>Ryan &#34;Byrd&#34; Berty</li>
           
-          <li>Ken Brownell</li>
+            <li>Ken Brownell</li>
           
-          <li>Patrick O&#39;Shea</li>
+            <li>Patrick O&#39;Shea</li>
           
-          <li>Hellman Escorcia</li>
+            <li>Hellman Escorcia</li>
           
-          <li>Rafael Rodriguez</li>
+            <li>Rafael Rodriguez</li>
           
-          <li>Trevor Young</li>
-          
-        </ul>
-        <p>Creation date: 1997</p>
-        <p>First album: 05-06-2002</p>
-        <h3>Location</h3>
-        <ul>
-          
-          <li>
-            noumea-new_caledonia:
-            <ul>
+            <li>Trevor Young</li> 
+          </ul>
+        </div>
+        <div class="artist__location">
+          <h3>Location:</h3>
+          <ul>
+            <li>
+            noumea-new_caledonia /
+              <ul class="artist__city">
               
-              <li>15-11-2019</li>
+                <li>15-11-2019</li>
               
-            </ul>
-          </li>
+              </ul>
+            </li>
           
-          <li>
-            papeete-french_polynesia:
-            <ul>
+            <li>
+            papeete-french_polynesia /
+              <ul class="artist__city">
               
               <li>16-11-2019</li>
               
@@ -198,8 +210,8 @@
           </li>
           
           <li>
-            playa_del_carmen-mexico:
-            <ul>
+            playa_del_carmen-mexico /
+            <ul class="artist__city">
               
               <li>05-12-2019</li>
               
@@ -211,21 +223,32 @@
               
               <li>09-12-2019</li>
               
+              
             </ul>
           </li>
-          
         </ul>
-        <div id="map" style="width: 600px; height: 400px"></div>
+        </div>
       </div>
-      
+      <div id="map" style="width: 920px; height: 460px"></div>
     </section>
     
 
     <footer class="footer">
-      <div class="container">
-        <h3 class="footer__title">Follow us on Github.com:</h3>
-        <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
-        <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+      <div class="container contfooter">
+        <div class="footer__contacnt">
+          <p class="footer__hub">Github / </p>
+          <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
+          <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+          <a class="footer__link" href="https://github.com/NordStream777" target="_blank">NordStream777</a>
+        </div>
+        <div class="footer__main">
+          <p class="footer__art">&#123; 2023 Artyom Echeistov &#125;</p>
+        </div>
+        <div class="footer__last">
+          <a class="footer__link" href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/README.md" target="_blank">About project</a>
+          <a class="footer__link" href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/audit/README.md" target="_blank">Helps</a>
+          <p class="footer__hub">// MD 2023 </p>
+        </div>
       </div>
     </footer>
   </body>
