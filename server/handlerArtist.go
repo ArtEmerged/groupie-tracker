@@ -1,7 +1,6 @@
 package server
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -34,7 +33,6 @@ func artistHandler(w http.ResponseWriter, r *http.Request, artistsPage []artists
 		errPage(w, http.StatusInternalServerError) // 500
 		return
 	}
-	fmt.Println(oneArtist)
 	err = tpl.ExecuteTemplate(w, "artist.html", oneArtist)
 	if err != nil {
 		errPage(w, http.StatusInternalServerError) // 500

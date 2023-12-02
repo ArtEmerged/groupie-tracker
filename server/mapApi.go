@@ -2,10 +2,7 @@ package server
 
 import (
 	"encoding/json"
-	"fmt"
-	"log"
 	"net/http"
-	"os"
 	"strings"
 )
 
@@ -44,49 +41,24 @@ type markers struct {
 	Y       float64
 }
 
-func MapApiTest() {
-	resp, err1 := http.Get(apimap + "london" + count + lang + apiformat)
-	if err1 != nil {
-		log.Println("1", err1)
-	}
-	var data hadeMarker
-	buff := make([]byte, 10000)
-	n, err := resp.Body.Read(buff)
-	if err != nil {
-		log.Println(err)
-	}
-	err2 := json.Unmarshal(buff[:n], &data)
-	if err2 != nil {
-		log.Println("2", err2)
-	}
-	if len(data.Response.GeoObjectCollection.FeatureMember) == 0 {
-		fmt.Println("Marker:")
-		os.Exit(0)
-	}
-	geoObgect := data.Response.GeoObjectCollection.FeatureMember[0].GeoObject
-	fmt.Println(string(buff[:n]))
-	fmt.Println("Marker:", geoObgect)
-	resp.Body.Close()
-}
-
 func requestMapApi(group *artists) error {
 	marker := make([]markers, len(group.Relations))
 	index := 0
 	for location := range group.Relations {
 		pars := (strings.Split(location, "-"))[0]
-		resp, err1 := http.Get(apimap + pars + count + lang + apiformat)
-		if err1 != nil {
-			return err1
+		resp, err := http.Get(apimap + pars + count + lang + apiformat)
+		if err != nil {
+			return err
 		}
 		var decodeData hadeMarker
-		err2 := json.NewDecoder(resp.Body).Decode(&decodeData)
-		if err2 != nil {
-			return err2
+		err = json.NewDecoder(resp.Body).Decode(&decodeData)
+		if err != nil {
+			return err
 		}
 		geoObgect := decodeData.Response.GeoObjectCollection.FeatureMember[0].GeoObject
-		x, y, err3 := convertCoordinates(geoObgect.Point.Pos)
-		if err3 != nil {
-			return err3
+		x, y, err := convertCoordinates(geoObgect.Point.Pos)
+		if err != nil {
+			return err
 		}
 		marker[index].City = geoObgect.City
 		marker[index].Country = geoObgect.Country
