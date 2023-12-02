@@ -53,9 +53,9 @@
       <div class="artist__content">
         <div class="artist__label">
           <h2 class="artist__name">{{.Name}}</h2>
-          <img src="{{.Image}}" alt="artist{{.Name}}" />
-          <p class="artist__create">Creation date: {{.CreationDate}}</p>
-          <p class="artist__first">First album: {{.FirstAlbum}}</p>
+          <img class="band__banner" src="{{.Image}}" alt="artist{{.Name}}" />
+          <p class="artist__create">Creation date / {{.CreationDate}}</p>
+          <p class="artist__first">First album / {{.FirstAlbum}}</p>
         </div>
         <div class="artist__members">
           <h3>Members:</h3>
@@ -81,7 +81,7 @@
           </ul>
         </div>
       </div>
-      <div id="map" style="width: 920px; height: 460px"></div>
+      <div id="map" class="map"></div>
     </section>
     {{end}}
     <footer class="footer">

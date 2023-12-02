@@ -24,9 +24,11 @@ a{
     line-height: 48px; /* 300% */ 
 }
 
+
 a:hover,
 a:focus{
-    text-decoration: overline;
+    color:rgb(197, 21, 159) ;
+    text-decoration:underline solid;
 }
 
 h2{
@@ -347,7 +349,7 @@ div{
     margin-bottom: 0;
 }
 
-#map{
+.map{
     max-width: 920px;
     max-height: 460px;
     margin: 108px auto 0 auto;
