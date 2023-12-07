@@ -14,6 +14,7 @@ func Running() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/static/"))))
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/artist", artistHandler)
+	http.HandleFunc("/filters/", filterHandler)
 	log.Printf("Listening on: http://%s:%s/\n", address, port)
 	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {

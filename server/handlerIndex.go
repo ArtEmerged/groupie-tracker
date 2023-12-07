@@ -18,7 +18,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		errPage(w, http.StatusInternalServerError) // 500
 		return
 	}
-	artistsPage = CreateDateForSearch(artistsPage, relations)
+	artistsPage = createDateForSearch(artistsPage, relations)
 	if initErr != nil {
 		errPage(w, http.StatusInternalServerError) // 500
 		return
@@ -30,7 +30,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func CreateDateForSearch(artistsPage []artists, relations relation) []artists {
+func createDateForSearch(artistsPage []artists, relations relation) []artists {
 	for i := 0; i < len(artistsPage); i++ {
 		artistsPage[i].Relations = relations.Index[i].DatesLocations
 	}
