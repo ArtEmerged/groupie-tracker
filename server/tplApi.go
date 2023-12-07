@@ -13,11 +13,11 @@ var (
 )
 
 func init() {
-	temp, initErr := template.ParseGlob("./web/templates/*.html")
+	temp, initErr := template.ParseGlob("./web/templates/*")
 	tpl = template.Must(temp, initErr)
 }
 
-type Artists struct {
+type artists struct {
 	ID           int                 `json:"id"`
 	Image        string              `json:"image"`
 	Name         string              `json:"name"`
@@ -25,16 +25,18 @@ type Artists struct {
 	CreationDate int                 `json:"creationDate"`
 	FirstAlbum   string              `json:"firstAlbum"`
 	Relations    map[string][]string `json:"-"`
+	Markers      []markers
+	CountMark    int
 }
 
-type Relation struct {
+type relation struct {
 	Index []struct {
 		ID             int                 `json:"id"`
 		DatesLocations map[string][]string `json:"datesLocations"`
 	} `json:"index"`
 }
 
-type ArtistsIndex struct {
+type artistsIndex struct {
 	ID    int    `json:"id"`
 	Image string `json:"image"`
 	Name  string `json:"name"`
@@ -45,48 +47,45 @@ const (
 	relationAPI = "https://groupietrackers.herokuapp.com/api/relation"
 )
 
-var (
-	IndexPage   []ArtistsIndex
-	ArtistsPage []Artists
-	Relations   Relation
-)
-
-func index() error {
+func index() ([]artistsIndex, error) {
+	indexPage := make([]artistsIndex, 0, 50)
 	resp, err := http.Get(artistsAPI)
 	if err != nil {
 		log.Print(err)
-		return err
+		return indexPage, err
 	}
 	defer resp.Body.Close()
-	err = json.NewDecoder(resp.Body).Decode(&IndexPage)
+	err = json.NewDecoder(resp.Body).Decode(&indexPage)
 	if err != nil {
 		log.Print(err)
-		return err
+		return indexPage, err
 	}
-	return err
+	return indexPage, err
 }
 
-func artist() error {
+func artist() ([]artists, relation, error) {
+	artistsPage := make([]artists, 0, 50)
+	relations := relation{}
 	resp, err := http.Get(artistsAPI)
 	if err != nil {
 		log.Print(err)
-		return err
+		return artistsPage, relations, err
 	}
 	defer resp.Body.Close()
-	err = json.NewDecoder(resp.Body).Decode(&ArtistsPage)
+	err = json.NewDecoder(resp.Body).Decode(&artistsPage)
 	if err != nil {
 		log.Print(err)
-		return err
+		return artistsPage, relations, err
 	}
 	resp, err = http.Get(relationAPI)
 	if err != nil {
 		log.Print(err)
-		return err
+		return artistsPage, relations, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(&Relations)
+	err = json.NewDecoder(resp.Body).Decode(&relations)
 	if err != nil {
 		log.Print(err)
-		return err
+		return artistsPage, relations, err
 	}
-	return err
+	return artistsPage, relations, err
 }

@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
     <link rel="stylesheet" href="/static/css/styles.css" />
+    
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
+    <script>
+      ymaps.ready(function () {
+          const map = new ymaps.Map(
+              document.getElementById('map'),
+              {
+                  center: [37.588144, 55.733842],
+                  zoom: 2
+              }
+          );
+          {{range $v := .Markers}}
+          map.geoObjects.add(new ymaps.Placemark([{{$v.Y}}, {{$v.X}}],{balloonContent: "{{$v.Country}}/{{$v.City}}",},{draggable: true,}));
+          // Второй маркер
+          {{end}}
+          // Удаление ненужных элементов управления
+          map.controls.remove('searchControl');
+          map.controls.remove('trafficControl');
+          map.controls.remove('layersControl');
+          map.controls.remove('zoomControl');
+          map.controls.remove('geolocationControl');
+      })
+    </script>
   </head>
   <body>
     <header class="header">
@@ -39,9 +62,12 @@
           </li>
           {{end}}
         </ul>
+        <div id="map" style="width: 600px; height: 400px"></div>
       </div>
+      
     </section>
     {{end}}
+
     <footer class="footer">
       <div class="container">
         <h3 class="footer__title">Follow us on Github.com:</h3>
