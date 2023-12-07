@@ -97,6 +97,7 @@ a {
     cursor: pointer;
 }
 
+
 a:hover {
     color: var(--primary-lightest);
     text-decoration: underline;

@@ -14,6 +14,31 @@
       </a>
     </header>
     {{if .}}
+    <!-- search section start -->
+    <div>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="search">
+
+      <ul id="myUL" style="display: none;">
+          {{range $i1, $v := .}}
+          <li><a href="/artist?id={{$v.ID}}">"{{$v.Name}}"</a></li>
+          <li><a href="/artist?id={{$v.ID}}">"{{$v.Name}}/{{$v.CreationDate}}"</a></li>
+          <li><a href="/artist?id={{$v.ID}}">"{{$v.Name}}/{{$v.FirstAlbum}}"</a></li>
+
+              {{range $i2, $artist := $v.Members}}
+          <li><a href="/artist?id={{$v.ID}}">"{{$v.Name}}/{{$artist}}"</a></li>
+              {{end}}
+
+              {{range $locations, $concert_dates:= $v.Relations}}
+          <li><a href="/artist?id={{$v.ID}}">"{{$v.Name}}/{{$locations}}"</a></li>
+                  {{range $i3, $date:=$concert_dates}}
+          <li><a href="/artist?id={{$v.ID}}">"{{$v.Name}}/{{$date}}"</a></li>
+                  {{end}}
+              {{end}}
+
+          {{end}}    
+      </ul> 
+  </div>
+    <!-- search section end  -->
     <section class="content container">
       {{range $i, $v := .}}
       <a class="band" href="/artist?id={{$v.ID}}" alt="{{$v.Name}}">
@@ -30,5 +55,34 @@
         <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
       </div>
     </footer>
+    <!-- start script search -->
+    <script>
+      function myFunction() {
+          // Получаем значение из поля ввода
+          var input, filter, ul, li, a, i;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById('myUL');
+          li = ul.getElementsByTagName('li');
+  
+          // Перебираем элементы списка и скрываем те, которые не соответствуют поисковому запросу
+          for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName('a')[0];
+              if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = '';
+              } else {
+                  li[i].style.display = 'none';
+              }
+          }
+  
+          // Показываем или скрываем весь список в зависимости от наличия совпадений
+          if (filter === "") {
+              ul.style.display = 'none';
+          } else {
+              ul.style.display = 'block';
+          }
+      }
+  </script>
+  <!-- end script search -->
   </body>
 </html>

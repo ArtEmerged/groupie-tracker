@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func artistHandler(w http.ResponseWriter, r *http.Request, artistsPage []artists, relations relation) {
+func artistHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/artist" {
 		errPage(w, http.StatusNotFound) // 404
 		return
@@ -13,7 +13,8 @@ func artistHandler(w http.ResponseWriter, r *http.Request, artistsPage []artists
 		errPage(w, http.StatusMethodNotAllowed) // 405
 		return
 	}
-	if _, _, err := artist(); err != nil {
+	artistsPage, relations, err := artist()
+	if err != nil {
 		errPage(w, http.StatusInternalServerError) // 500
 		return
 	}

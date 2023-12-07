@@ -11,15 +11,9 @@ const (
 )
 
 func Running() {
-	indexPage, _ := index()
-	artistsPage, relation, _ := artist()
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/static/"))))
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		indexHandler(w, r, indexPage)
-	})
-	http.HandleFunc("/artist", func(w http.ResponseWriter, r *http.Request) {
-		artistHandler(w, r, artistsPage, relation)
-	})
+	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/artist", artistHandler)
 	log.Printf("Listening on: http://%s:%s/\n", address, port)
 	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {

@@ -36,32 +36,32 @@ type relation struct {
 	} `json:"index"`
 }
 
-type artistsIndex struct {
-	ID    int    `json:"id"`
-	Image string `json:"image"`
-	Name  string `json:"name"`
-}
+// type artistsIndex struct {
+// 	ID    int    `json:"id"`
+// 	Image string `json:"image"`
+// 	Name  string `json:"name"`
+// }
 
 const (
 	artistsAPI  = "https://groupietrackers.herokuapp.com/api/artists"
 	relationAPI = "https://groupietrackers.herokuapp.com/api/relation"
 )
 
-func index() ([]artistsIndex, error) {
-	indexPage := make([]artistsIndex, 0, 50)
-	resp, err := http.Get(artistsAPI)
-	if err != nil {
-		log.Print(err)
-		return indexPage, err
-	}
-	defer resp.Body.Close()
-	err = json.NewDecoder(resp.Body).Decode(&indexPage)
-	if err != nil {
-		log.Print(err)
-		return indexPage, err
-	}
-	return indexPage, err
-}
+// func index() ([]artistsIndex, error) {
+// 	indexPage := make([]artistsIndex, 0, 50)
+// 	resp, err := http.Get(artistsAPI)
+// 	if err != nil {
+// 		log.Print(err)
+// 		return indexPage, err
+// 	}
+// 	defer resp.Body.Close()
+// 	err = json.NewDecoder(resp.Body).Decode(&indexPage)
+// 	if err != nil {
+// 		log.Print(err)
+// 		return indexPage, err
+// 	}
+// 	return indexPage, err
+// }
 
 func artist() ([]artists, relation, error) {
 	artistsPage := make([]artists, 0, 50)

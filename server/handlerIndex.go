@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func indexHandler(w http.ResponseWriter, r *http.Request, indexPage []artistsIndex) {
+func indexHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		errPage(w, http.StatusNotFound) // 404
 		return
@@ -13,17 +13,26 @@ func indexHandler(w http.ResponseWriter, r *http.Request, indexPage []artistsInd
 		errPage(w, http.StatusMethodNotAllowed) // 405
 		return
 	}
-	if _, err := index(); err != nil {
-		errPage(w, http.StatusInternalServerError) // 500
-		return
-	}
-	if initErr != nil {
-		errPage(w, http.StatusInternalServerError) // 500
-		return
-	}
-	err := tpl.ExecuteTemplate(w, "index.html", &indexPage)
+	artistsPage, relations, err := artist()
 	if err != nil {
 		errPage(w, http.StatusInternalServerError) // 500
 		return
 	}
+	artistsPage = CreateDateForSearch(artistsPage, relations)
+	if initErr != nil {
+		errPage(w, http.StatusInternalServerError) // 500
+		return
+	}
+	err = tpl.ExecuteTemplate(w, "index.html", &artistsPage)
+	if err != nil {
+		errPage(w, http.StatusInternalServerError) // 500
+		return
+	}
+}
+
+func CreateDateForSearch(artistsPage []artists, relations relation) []artists {
+	for i := 0; i < len(artistsPage); i++ {
+		artistsPage[i].Relations = relations.Index[i].DatesLocations
+	}
+	return artistsPage
 }
