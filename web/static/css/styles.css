@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
 
 body{
     margin: 0;
@@ -74,9 +79,10 @@ li{
     font-style: normal;
     font-weight: 300;
     line-height: 24.12px; /* 150.75% */
-    margin-bottom: 10px;
     position: relative;
     list-style-type: none;
+    width: fit-content;
+    margin: 0 auto 10px auto;
 }
 
 .list li::before {
@@ -162,14 +168,31 @@ div{
     height: 1px;
     background-color: #1E1C1C;
 }
+.pageartist{
+    justify-content: flex-start;
+    width: 60%;
+}
+
+.block1{
+    display:flex;
+    height: 100%;
+     width:40%;
+}
+
+.block2{
+    width:60%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 .line__header{
     display: block;
-    margin-top: 52px;
-    margin-right: 324px;
+    /* margin-top: 52px; */
     height: 1px;
-    width: 230px;
+    width: 40%;
     background-color:#1E1C1C;
+    flex-grow: 0;
 }
 
 .content{
@@ -369,6 +392,11 @@ div{
         width: 45px;
         }
 
+    .artist__label p{
+        white-space: nowrap;
+        margin: 0 auto;
+        width: max-content;
+    }
 
     /* header     */
 
@@ -496,41 +524,33 @@ div{
 
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container {
         max-width: 720px;
     }
-}
+} */
 
-/* @media (max-width: 992px) {
+@media (max-width: 992px) {
     .container {
         max-width: 960px;
     }
 
-    .artist__content{
-        padding-left: 53px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-right: 23px;
-    }
+    .artist__name{
 
-    .main{
-        border: 1px solid;
-        margin-top: 42px;
-        max-width: 1064px;
-        padding-bottom: 72px;
-        margin-bottom: 112px;
-        display: flex;
-        flex-direction: column;
         text-align: center;
-        justify-content: center;
+        
     }
-} */
+}
 
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .container {
         max-width: 1140px;
     }
+
+    /* .line__header{
+        margin-left: 5vw;
+    } */
+
+
 
 }
