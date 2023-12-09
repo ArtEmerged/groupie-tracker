@@ -230,7 +230,7 @@ div{
 
 }
 .band__banner{
-    border-bottom: 1px solid #1E1C1C;
+    border: 1px solid #1E1C1C;
     filter: grayscale(80%);
     background-color: rgba(17, 23, 40, 0.80);
     background-blend-mode: color;
