@@ -3,6 +3,8 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'DM Mono', monospace;
+    color: #1E1C1C;
 }
 
 body{
@@ -11,8 +13,6 @@ body{
 
 }
 p{
-    color: #1E1C1C;
-    font-family: 'DM Mono', monospace;
     font-size: 16px;
     font-weight: 300;
     line-height: 48px;
@@ -21,8 +21,6 @@ p{
 
 a{
     text-decoration: none;
-    color: #1E1C1C;
-    font-family: DM Mono;
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
@@ -38,13 +36,13 @@ a:focus{
 
 h2{
     max-height: 71px;
-    color: #1E1C1C;
     text-align: center;
-    font-family: 'DM Mono';
     font-size: 24px;
     font-style: normal;
     font-weight: 300;
     line-height: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 h3{
@@ -81,7 +79,7 @@ li{
     line-height: 24.12px; /* 150.75% */
     position: relative;
     list-style-type: none;
-    width: fit-content;
+    width: 163px;
     margin: 0 auto 10px auto;
 }
 
@@ -100,10 +98,17 @@ div{
     background-color:white;
 }
 
-    .container, .container-fluid {
+/* container */
+
+.container, .container-fluid {
         width: 100%;
         margin: 0 auto;
+        padding-left: 5px;
+        padding-right: 5px;
     }
+
+
+/* header    */
     
 .header__div{
     display: flex;
@@ -195,6 +200,9 @@ div{
     flex-grow: 0;
 }
 
+
+/* main */
+
 .content{
     margin-top: 75px;
     display:flex;
@@ -211,6 +219,7 @@ div{
     align-items: center;
     max-width: 240px;
     text-decoration: none;
+    box-sizing: content-box;
 }
 
 .band:hover{
@@ -227,6 +236,8 @@ div{
     background-blend-mode: color;
 }
 
+
+/* footer */
 
 .footer{
     border-top: 1px solid;
@@ -286,12 +297,19 @@ div{
     line-height: 27.84px; /* 198.857% */
 }
 
+
+/* second page */
+
+
+/* main section */
+
 .main{
     border: 1px solid;
     margin-top: 42px;
     max-width: 1064px;
     padding-bottom: 72px;
     margin-bottom: 112px;
+    
 }
 .artist__content{
     padding-left: 53px;
@@ -338,6 +356,7 @@ div{
     margin-top: 77px;
     display: flex;
     flex-direction: column;
+    flex-grow: 0;
 }
 
 .artist__city > li{
@@ -354,9 +373,40 @@ div{
     border: 1px solid;
 }
 
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    /* .line__header{
+        margin-left: 5vw;
+    } */
+
+    .main{
+        box-sizing:content-box;
+    }
+
+}
+
+@media (max-width: 1199px) {
+    .contfooter{
+        justify-content: space-around;
+    }
+
+}
+
 @media (max-width: 992px) {
     .container {
         max-width: 960px;
+    }
+
+    .content{
+        justify-content: space-around;
+    }
+
+    .contfooter{
+        justify-content: space-around;
     }
 
     .artist__content{
@@ -378,11 +428,37 @@ div{
         text-align: center;
         justify-content: center;
     }
+    
+    .artist__name{
+
+        text-align: center;
+        
+    }
+
+}
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .header__logo{
+        padding-top: 30px;
+    }
+    .header__logo p {
+        font-size: 16px;
+        line-height: 20px;
+        
+    }
+
+    
 }
 
 @media (max-width: 576px) {
     .container {
-        max-width: 540px;
+        box-sizing: border-box;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     p{
@@ -403,6 +479,13 @@ div{
 
     .header__logo{
         padding: 15px 10px 0 10px;
+    }
+
+    .header__logo p {
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        width: 45px
     }
     
     .header__main{
@@ -453,6 +536,11 @@ div{
         flex-direction: column;
         gap: 48px;
         
+    }
+
+    .main{
+        border: none;
+        padding-bottom: 52px;
     }
 
 
@@ -521,36 +609,5 @@ div{
         white-space: nowrap;
         text-align: center;
     }
-
-}
-
-/* @media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
-} */
-
-@media (max-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
-
-    .artist__name{
-
-        text-align: center;
-        
-    }
-}
-
-@media (max-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
-
-    /* .line__header{
-        margin-left: 5vw;
-    } */
-
-
 
 }
