@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
-    
+    <link rel="stylesheet" href="../static/css/styles.css" />
+
     <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
+
     <script>
-      ymaps.ready(function () {
+       ymaps.ready(function () {
           const map = new ymaps.Map(
               document.getElementById('map'),
               {
@@ -21,7 +22,6 @@
           map.geoObjects.add(new ymaps.Placemark([{{$v.Y}}, {{$v.X}}],{balloonContent: "{{$v.Country}}/{{$v.City}}",},{draggable: true,}));
           // Второй маркер
           {{end}}
-          // Удаление ненужных элементов управления
           map.controls.remove('searchControl');
           map.controls.remove('trafficControl');
           map.controls.remove('layersControl');
@@ -31,48 +31,102 @@
     </script>
   </head>
   <body>
-    <header class="header">
-      <a class="header__brand" href="/" alt="home">
-        <h1>GROUPIE-TRACKER</h1>
-      </a>
-    </header>
-    {{if .}}
-    <section class="container">
-      <div class="artist__content">
-        <h2>{{.Name}}</h2>
-        <img src="{{.Image}}" alt="artist{{.Name}}" />
-        <h3>Members</h3>
-        <ul>
-          {{range $i, $v:= .Members}}
-          <li>{{$v}}</li>
-          {{end}}
-        </ul>
-        <p>Creation date: {{.CreationDate}}</p>
-        <p>First album: {{.FirstAlbum}}</p>
-        <h3>Location</h3>
-        <ul>
-          {{range $locations, $concert_dates:= .Relations}}
-          <li>
-            {{$locations}}:
-            <ul>
-              {{range $i2, $date:=$concert_dates}}
-              <li>{{$date}}</li>
-              {{end}}
-            </ul>
-          </li>
-          {{end}}
-        </ul>
-        <div id="map" style="width: 600px; height: 400px"></div>
+    <header class="header container">
+      <div class="header__div">
+        <div class="header__logo">
+          <p>// music group</p>
+        </div>
+        <div class="header__main pageartist">
+          <div class="block1">
+            <a class="header__alm" href="https://alem.school/" target="_blank" >AL&#123;M</a>
+          </div>
+          <div class="block2">
+            <div class="line__header"></div>
+        </div>
+        </div>
+        <div class="header__home">
+          <a href="/">home</a>
+        </div>
       </div>
-      
+    </header>
+    <div class="line"></div>
+    {{if .}}
+    <section class="main container">
+      <div class="artist__content">
+        <div class="artist__label">
+          <h2 class="artist__name">{{.Name}}</h2>
+          <img class="band__banner" src="{{.Image}}" alt="artist{{.Name}}" />
+          <p class="artist__create">Creation date / {{.CreationDate}}</p>
+          <p class="artist__first">First album / {{.FirstAlbum}}</p>
+        </div>
+        <div class="artist__members">
+          <h3>Members:</h3>
+          <ul class="list">
+            {{range $i, $v:= .Members}}
+            <li>{{$v}}</li>
+            {{end}}
+          </ul>
+        </div>
+        <div class="artist__location">
+          <h3>Location:</h3>
+          <ul>
+            {{range $locations, $concert_dates:= .Relations}}
+            <li>
+              {{$locations}} /
+              <ul class="artist__city">
+                {{range $i2, $date:=$concert_dates}}
+                <li>{{$date}}</li>
+                {{end}}
+              </ul>
+            </li>
+            {{end}}
+          </ul>
+        </div>
+      </div>
+      <div id="map" class="map"></div>
     </section>
     {{end}}
-
     <footer class="footer">
-      <div class="container">
-        <h3 class="footer__title">Follow us on Github.com:</h3>
-        <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
-        <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
+      <div class="container contfooter">
+        <div class="footer__contacnt">
+          <p class="footer__hub">Github /</p>
+          <a
+            class="footer__link"
+            href="https://github.com/GoArtyom"
+            target="_blank"
+            >GoArtyom</a
+          >
+          <a
+            class="footer__link"
+            href="https://github.com/grenkoff"
+            target="_blank"
+            >grenkoff</a
+          >
+          <a
+            class="footer__link"
+            href="https://github.com/NordStream777"
+            target="_blank"
+            >NordStream777</a
+          >
+        </div>
+        <div class="footer__main">
+          <p class="footer__art">&#123; 2023 Artyom Echeistov &#125;</p>
+        </div>
+        <div class="footer__last">
+          <a
+            class="footer__link"
+            href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/README.md"
+            target="_blank"
+            >About project</a
+          >
+          <a
+            class="footer__link"
+            href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/audit/README.md"
+            target="_blank"
+            >Helps</a
+          >
+          <p class="footer__hub">// MD 2023</p>
+        </div>
       </div>
     </footer>
   </body>
