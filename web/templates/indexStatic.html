@@ -17,7 +17,7 @@
           <a class="header__alm" href="https://alem.school/" target="_blank" >AL&#123;M</a>
           <form action="#" class="header__input">
             <p>&#123;</p>
-            <input type="search">
+            <input class="search" type="search">
             <p>&#125;</p>
             <button class="headersvg">
           </button>
@@ -31,6 +31,114 @@
     </header>
 
     <div class="line"></div>
+
+    <div class="pt">
+      <div class="container filter">
+          <form action="/filters/" method="get">
+            <div class="wrapper_first">
+              <div class="wrapper">
+                  <h2>create date /</h2>
+                  <div class="price-input">
+                      <div class="field">
+                        <span>from:</span>
+                        <input type="text">
+                      </div>
+                      <div class="field">
+                        <span>fo:</span>
+                        <input type="text">
+                      </div>
+                  </div>
+
+                  <div class="container-range">
+                      <div class="slider-track create_date-track"></div>
+                      <input type="range" name="MinCreationDate" min="1958" max="2015" value="1958" id="slider-1" oninput="slideOne()">
+                      <input type="range" name="MaxCreationDate" min="1958" max="2015" value="2015" id="slider-2" oninput="slideTwo()">
+                  </div>
+              </div>
+              <div class="wrapper">
+                  <h2>first album date /</h2>
+
+                  <div class="price-input">
+                      <div class="field">
+                        <span>from:</span>
+                        <input type="text">
+                      </div>
+                      <div class="field">
+                        <span>to:</span>
+                        <input type="text">
+                      </div>
+                    </div>
+
+                  <div class="container-range">
+                      <div class="slider-track first_album-track"></div>
+                      <input type="range" name="MinFirstAlbumDate" min="1963" max="2018" value="1963" id="slider-3" oninput="slideThree()">
+                      <input type="range" name="MaxFirstAlbumDate" min="1963" max="2018" value="2018" id="slider-4" oninput="slideFour()">
+                  </div>
+              </div>
+              <div class="wrapper location">
+                <h2>Location</h2>
+                <div class="search dark">
+                    <div class="form__search">
+                        <input class="tags" type="search" autocomplete="off" name="loc" placeholder="Add...">
+                        <button onclick="addTagByButton()" type="button">
+                            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="content">
+                        <ul class="ul"></ul>
+                    </div>
+                    <div class="details">
+                        <p><span>10</span> tags are remaining</p>
+                        <button>Remove All</button>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="wrapper_second">
+            <div class="members wrapper">
+              <h2>Members</h2>
+              <div class="members__items">
+                  <input type="checkbox" id="1" name="Member1">
+                  <label for="1">
+                    <span>1</span>
+                  </label>
+                  <input type="checkbox" id="2" name="Member2">
+                  <label for="2"> 
+                    <span>2</span>
+                  </label>
+                  <input type="checkbox" id="3" name="Member3">
+                  <label for="3"> 
+                    <span>3</span>
+                  </label>
+                  <input type="checkbox" id="4" name="Member4">
+                  <label for="4"> 
+                    <span>4</span>
+                  </label>
+                  <input type="checkbox" id="5" name="Member5">
+                  <label for="5"> 
+                    <span>5</span>
+                  </label>
+                  <input type="checkbox" id="6" name="Member6">
+                  <label for="6"> 
+                    <span>6</span>
+                  </label>
+                  <input type="checkbox" id="7" name="Member7">
+                  <label for="7"> 
+                    <span>7</span>
+                  </label>
+                  <input type="checkbox" id="8" name="Member8">
+                  <label for="8"> 
+                    <span>8</span>
+                  </label>
+              </div>
+          </div>
+          <button class="submit" type="submit"><b>APPLY</b></button>
+          </div>
+          </form>
+      </div>
+  </div>
     
     <section class="content container">
       
