@@ -19,7 +19,6 @@ p{
     margin: 0;
     }
 
-   
 a{
     text-decoration: none;
     font-size: 16px;
@@ -150,7 +149,7 @@ div{
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px, solid, #1E1C1C;
+    border-bottom: 1px solid #1E1C1C;
     margin: 0 3px;
     width: 70%;
     border-radius: 0%;
@@ -213,7 +212,7 @@ div{
 
 /* main */
 
-.content{
+.main__content{
     margin-top: 75px;
     display:flex;
     flex-wrap: wrap;
@@ -244,6 +243,7 @@ div{
     filter: grayscale(80%);
     background-color: rgba(17, 23, 40, 0.80);
     background-blend-mode: color;
+    border-top: none;
 }
 
 
@@ -577,6 +577,59 @@ label span{
     font-weight: 300;
 }
 
+.wrapper :where(.title, li, li i, .details){
+    display: flex;
+    align-items: center;
+  }
+  .wrapper .content{
+    margin: 10px 0;
+  }
+  .content p{
+    font-size: 15px;
+  }
+  .content ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 12px 0;
+    border-radius: 5px;
+    padding-left: 1px;
+  }
+  .content ul  li{
+    color: #333;
+    margin-right: 10px;
+    list-style: none;
+    border-radius: 5px;
+    background: #F2F2F2;
+    padding: 5px 8px 5px 10px;
+    border: 1px solid #e3e1e1;
+  }
+  .content ul li i{
+    height: 20px;
+    width: 20px;
+    color: #808080;
+    margin-left: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #dfdfdf;
+    justify-content: center;
+  }
+  .content ul input{
+    flex: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  .content ul li input{
+      display: none;
+  }
+  .wrapper .details{
+    justify-content: space-between;
+    display: none;
+  }
+
 @media (min-width: 1200px) {
     .container {
         max-width: 1140px;
@@ -604,7 +657,7 @@ label span{
         max-width: 960px;
     }
 
-    .content{
+    .main__content{
         justify-content: space-around;
     }
 
@@ -730,7 +783,7 @@ label span{
     /* main */
 
 
-    .content{
+    .main__content{
         margin-top: 35px;
         display:flex;
         flex-wrap: wrap;
