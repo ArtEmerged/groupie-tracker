@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
-    <link rel="stylesheet" href="../static/css/styles.css"/>
+    <link rel="stylesheet" href="../static/css/styles.css" />
   </head>
   <body>
     <header class="header container">
@@ -14,14 +14,19 @@
           <p>// music group</p>
         </div>
         <div class="header__main">
-          <a class="header__alm" href="https://alem.school/" target="_blank" >AL&#123;M</a>
+          <a class="header__alm" href="https://alem.school/" target="_blank"
+            >AL&#123;M</a
+          >
+          <!-- search start -->
           <form action="#" class="header__input">
             <p>&#123;</p>
-            <input class="search" type="search">
+            <div class="header__search-results-wrapper">
+              <input type="text" id="myInput" onkeyup="myFunction()" />
+            </div>
             <p>&#125;</p>
-            <button class="headersvg">
-          </button>
+            <button class="headersvg"></button>
           </form>
+          <!-- search end -->
           <p class="header__filtres">filters</p>
         </div>
         <div class="header__home">
@@ -32,410 +37,691 @@
 
     <div class="line"></div>
 
+    <!-- filter start -->
     <div class="pt">
       <div class="container filter">
-          <form action="/filters/" method="get">
-            <div class="wrapper_first">
-              <div class="wrapper">
-                  <h2>create date /</h2>
-                  <div class="price-input">
-                      <div class="field">
-                        <span>from:</span>
-                        <input type="text" id="range1">
-                      </div>
-                      <div class="field">
-                        <span>to:</span>
-                        <input type="text" id="range2">
-                      </div>
-                  </div>
+        <form action="/filters/" method="GET">
+          <div class="wrapper_first">
+            <div class="wrapper">
+              <h2>create date /</h2>
 
-                  <div class="container-range">
-                      <div class="slider-track create_date-track"></div>
-                      <input type="range" name="MinCreationDate" min="1958" max="2015" value="1958" id="slider-1" oninput="slideOne()">
-                      <input type="range" name="MaxCreationDate" min="1958" max="2015" value="2015" id="slider-2" oninput="slideTwo()">
-                  </div>
-              </div>
-              <div class="wrapper">
-                  <h2>first album date /</h2>
-
-                  <div class="price-input">
-                      <div class="field">
-                        <span>from:</span>
-                        <input type="text" id="range3">
-                      </div>
-                      <div class="field">
-                        <span>to:</span>
-                        <input type="text" id="range4">
-                      </div>
-                    </div>
-
-                  <div class="container-range">
-                      <div class="slider-track first_album-track"></div>
-                      <input type="range" name="MinFirstAlbumDate" min="1963" max="2018" value="1963" id="slider-3" oninput="slideThree()">
-                      <input type="range" name="MaxFirstAlbumDate" min="1963" max="2018" value="2018" id="slider-4" oninput="slideFour()">
-                  </div>
-              </div>
-              <div class="wrapper location">
-                <h2>location /</h2>
-                <div class="search dark">
-                    <div class="form__search">
-                        <input class="tags" type="search" autocomplete="off" name="loc" placeholder="Add...">
-                        <button onclick="addTagByButton()" type="button">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <path d="M4.58337 11.9167V11H10.0834V5.5H11V11H16.5V11.9167H11V17.4167H10.0834V11.9167H4.58337Z" fill="black"/>
-                          </svg>
-                        </button>
-                    </div>
-                    <div class="content">
-                        <ul class="ul"></ul>
-                    </div>
-                    <div class="details">
-                        <p><span>10</span> tags are remaining</p>
-                        <button>Remove All</button>
-                    </div>
+              <div class="price-input">
+                <div class="field">
+                  <span class="form_to">from:</span>
+                  <span class="range" id="range1">1958</span>
+                </div>
+                <div class="field">
+                  <span class="form_to">to:</span>
+                  <span class="range" id="range2">2015</span>
                 </div>
               </div>
+
+              <div class="container-range">
+                <div class="slider-track create_date-track"></div>
+                <input
+                  type="range"
+                  name="MinCreationDate"
+                  min="1958"
+                  max="2015"
+                  value="1958"
+                  id="slider-1"
+                  oninput="slideOne()"
+                />
+                <input
+                  type="range"
+                  name="MaxCreationDate"
+                  min="1958"
+                  max="2015"
+                  value="2015"
+                  id="slider-2"
+                  oninput="slideTwo()"
+                />
+              </div>
+            </div>
+            <div class="wrapper">
+              <h2>first album date /</h2>
+
+              <div class="price-input">
+                <div class="field">
+                  <span class="form_to">from:</span>
+                  <span class="range" id="range3">1963</span>
+                </div>
+                <div class="field">
+                  <span class="form_to">to:</span>
+                  <span class="range" id="range4">2018</span>
+                </div>
+              </div>
+
+              <div class="container-range">
+                <div class="slider-track first_album-track"></div>
+                <input
+                  type="range"
+                  name="MinFirstAlbumDate"
+                  min="1963"
+                  max="2018"
+                  value="1963"
+                  id="slider-3"
+                  oninput="slideThree()"
+                />
+                <input
+                  type="range"
+                  name="MaxFirstAlbumDate"
+                  min="1963"
+                  max="2018"
+                  value="2018"
+                  id="slider-4"
+                  oninput="slideFour()"
+                />
+              </div>
+            </div>
+            <div class="wrapper location">
+              <h2>location /</h2>
+              <div class="search dark">
+                <div class="form__search">
+                  <input
+                    class="tags"
+                    type="search"
+                    autocomplete="off"
+                    name="loc"
+                    placeholder="Add..."
+                  />
+                  <button onclick="addTagByButton()" type="button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                    >
+                      <path
+                        d="M4.58337 11.9167V11H10.0834V5.5H11V11H16.5V11.9167H11V17.4167H10.0834V11.9167H4.58337Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="content">
+                  <ul class="ul"></ul>
+                </div>
+                <div class="details">
+                  <p><span>10</span> tags are remaining</p>
+                  <button>Remove All</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="wrapper_second">
             <div class="members wrapper">
               <h2>members /</h2>
               <div class="members__items">
-                  <input type="checkbox" id="1" name="Member1">
-                  <label for="1">
-                    <span>1</span>
-                  </label>
-                  <input type="checkbox" id="2" name="Member2">
-                  <label for="2"> 
-                    <span>2</span>
-                  </label>
-                  <input type="checkbox" id="3" name="Member3">
-                  <label for="3"> 
-                    <span>3</span>
-                  </label>
-                  <input type="checkbox" id="4" name="Member4">
-                  <label for="4"> 
-                    <span>4</span>
-                  </label>
-                  <input type="checkbox" id="5" name="Member5">
-                  <label for="5"> 
-                    <span>5</span>
-                  </label>
-                  <input type="checkbox" id="6" name="Member6">
-                  <label for="6"> 
-                    <span>6</span>
-                  </label>
-                  <input type="checkbox" id="7" name="Member7">
-                  <label for="7"> 
-                    <span>7</span>
-                  </label>
-                  <input type="checkbox" id="8" name="Member8">
-                  <label for="8"> 
-                    <span>8</span>
-                  </label>
+                <input type="checkbox" id="1" name="Member1" />
+                <label for="1">
+                  <span>1</span>
+                </label>
+                <input type="checkbox" id="2" name="Member2" />
+                <label for="2">
+                  <span>2</span>
+                </label>
+                <input type="checkbox" id="3" name="Member3" />
+                <label for="3">
+                  <span>3</span>
+                </label>
+                <input type="checkbox" id="4" name="Member4" />
+                <label for="4">
+                  <span>4</span>
+                </label>
+                <input type="checkbox" id="5" name="Member5" />
+                <label for="5">
+                  <span>5</span>
+                </label>
+                <input type="checkbox" id="6" name="Member6" />
+                <label for="6">
+                  <span>6</span>
+                </label>
+                <input type="checkbox" id="7" name="Member7" />
+                <label for="7">
+                  <span>7</span>
+                </label>
+                <input type="checkbox" id="8" name="Member8" />
+                <label for="8">
+                  <span>8</span>
+                </label>
               </div>
+            </div>
+            <button class="submit" type="submit"><b>apply</b></button>
           </div>
-          <button class="submit" type="submit"><b>apply</b></button>
-          </div>
-          </form>
+        </form>
       </div>
-  </div>
-    
+    </div>
+    <!-- filter end -->
+
     <section class="main__content container">
-      
       <a class="band" href="/artist?id=1" alt="Queen">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/queen.jpeg" alt="banner of Queen"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/queen.jpeg"
+          alt="banner of Queen"
+        />
         <h2 class="band__name">Queen</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=2" alt="SOJA">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/soja.jpeg" alt="banner of SOJA"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/soja.jpeg"
+          alt="banner of SOJA"
+        />
         <h2 class="band__name">SOJA</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=3" alt="Pink Floyd">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/pinkfloyd.jpeg" alt="banner of Pink Floyd"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/pinkfloyd.jpeg"
+          alt="banner of Pink Floyd"
+        />
         <h2 class="band__name">Pink Floyd</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=4" alt="Scorpions">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/scorpions.jpeg" alt="banner of Scorpions"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/scorpions.jpeg"
+          alt="banner of Scorpions"
+        />
         <h2 class="band__name">Scorpions</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=5" alt="XXXTentacion">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/xxxtentacion.jpeg" alt="banner of XXXTentacion"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/xxxtentacion.jpeg"
+          alt="banner of XXXTentacion"
+        />
         <h2 class="band__name">XXXTentacion</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=6" alt="Mac Miller">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/macmiller.jpeg" alt="banner of Mac Miller"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/macmiller.jpeg"
+          alt="banner of Mac Miller"
+        />
         <h2 class="band__name">Mac Miller</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=7" alt="Joyner Lucas">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/joynerlucas.jpeg" alt="banner of Joyner Lucas"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/joynerlucas.jpeg"
+          alt="banner of Joyner Lucas"
+        />
         <h2 class="band__name">Joyner Lucas</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=8" alt="Kendrick Lamar">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/kencricklamar.jpeg" alt="banner of Kendrick Lamar"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/kencricklamar.jpeg"
+          alt="banner of Kendrick Lamar"
+        />
         <h2 class="band__name">Kendrick Lamar</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=9" alt="ACDC">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/acdc.jpeg" alt="banner of ACDC"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/acdc.jpeg"
+          alt="banner of ACDC"
+        />
         <h2 class="band__name">ACDC</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=10" alt="Pearl Jam">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/pearljam.jpeg" alt="banner of Pearl Jam"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/pearljam.jpeg"
+          alt="banner of Pearl Jam"
+        />
         <h2 class="band__name">Pearl Jam</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=11" alt="Katy Perry">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/katyperry.jpeg" alt="banner of Katy Perry"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/katyperry.jpeg"
+          alt="banner of Katy Perry"
+        />
         <h2 class="band__name">Katy Perry</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=12" alt="Rihanna">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/rihanna.jpeg" alt="banner of Rihanna"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/rihanna.jpeg"
+          alt="banner of Rihanna"
+        />
         <h2 class="band__name">Rihanna</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=13" alt="Genesis">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/genesis.jpeg" alt="banner of Genesis"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/genesis.jpeg"
+          alt="banner of Genesis"
+        />
         <h2 class="band__name">Genesis</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=14" alt="Phil Collins">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/philcollins.jpeg" alt="banner of Phil Collins"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/philcollins.jpeg"
+          alt="banner of Phil Collins"
+        />
         <h2 class="band__name">Phil Collins</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=15" alt="Led Zeppelin">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/ledzeppelin.jpeg" alt="banner of Led Zeppelin"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/ledzeppelin.jpeg"
+          alt="banner of Led Zeppelin"
+        />
         <h2 class="band__name">Led Zeppelin</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=16" alt="The Jimi Hendrix Experience">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/jimihendrix.jpeg" alt="banner of The Jimi Hendrix Experience"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/jimihendrix.jpeg"
+          alt="banner of The Jimi Hendrix Experience"
+        />
         <h2 class="band__name">The Jimi Hendrix Experience</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=17" alt="Bee Gees">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/beegees.jpeg" alt="banner of Bee Gees"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/beegees.jpeg"
+          alt="banner of Bee Gees"
+        />
         <h2 class="band__name">Bee Gees</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=18" alt="Deep Purple">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/deeppurple.jpeg" alt="banner of Deep Purple"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/deeppurple.jpeg"
+          alt="banner of Deep Purple"
+        />
         <h2 class="band__name">Deep Purple</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=19" alt="Aerosmith">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/aerosmith.jpeg" alt="banner of Aerosmith"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/aerosmith.jpeg"
+          alt="banner of Aerosmith"
+        />
         <h2 class="band__name">Aerosmith</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=20" alt="Dire Straits">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/direstraits.jpeg" alt="banner of Dire Straits"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/direstraits.jpeg"
+          alt="banner of Dire Straits"
+        />
         <h2 class="band__name">Dire Straits</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=21" alt="Mamonas Assassinas">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/mamonasassassinas.jpeg" alt="banner of Mamonas Assassinas"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/mamonasassassinas.jpeg"
+          alt="banner of Mamonas Assassinas"
+        />
         <h2 class="band__name">Mamonas Assassinas</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=22" alt="Thirty Seconds to Mars">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/30.jpeg" alt="banner of Thirty Seconds to Mars"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/30.jpeg"
+          alt="banner of Thirty Seconds to Mars"
+        />
         <h2 class="band__name">Thirty Seconds to Mars</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=23" alt="Imagine Dragons">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/imagineDragons.jpeg" alt="banner of Imagine Dragons"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/imagineDragons.jpeg"
+          alt="banner of Imagine Dragons"
+        />
         <h2 class="band__name">Imagine Dragons</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=24" alt="Juice Wrld">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/juiceWrld.jpeg" alt="banner of Juice Wrld"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/juiceWrld.jpeg"
+          alt="banner of Juice Wrld"
+        />
         <h2 class="band__name">Juice Wrld</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=25" alt="Logic">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/logic.jpeg" alt="banner of Logic"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/logic.jpeg"
+          alt="banner of Logic"
+        />
         <h2 class="band__name">Logic</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=26" alt="Alec Benjamin">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/alecBeenjamin.jpeg" alt="banner of Alec Benjamin"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/alecBeenjamin.jpeg"
+          alt="banner of Alec Benjamin"
+        />
         <h2 class="band__name">Alec Benjamin</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=27" alt="Bobby McFerrins">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/bobbyMcFerrin.jpeg" alt="banner of Bobby McFerrins"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/bobbyMcFerrin.jpeg"
+          alt="banner of Bobby McFerrins"
+        />
         <h2 class="band__name">Bobby McFerrins</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=28" alt="R3HAB">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/R3HAB.jpeg" alt="banner of R3HAB"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/R3HAB.jpeg"
+          alt="banner of R3HAB"
+        />
         <h2 class="band__name">R3HAB</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=29" alt="Post Malone">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/postmalone.jpeg" alt="banner of Post Malone"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/postmalone.jpeg"
+          alt="banner of Post Malone"
+        />
         <h2 class="band__name">Post Malone</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=30" alt="Travis Scott">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/travisScott.jpeg" alt="banner of Travis Scott"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/travisScott.jpeg"
+          alt="banner of Travis Scott"
+        />
         <h2 class="band__name">Travis Scott</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=31" alt="J. Cole">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/jCole.jpeg" alt="banner of J. Cole"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/jCole.jpeg"
+          alt="banner of J. Cole"
+        />
         <h2 class="band__name">J. Cole</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=32" alt="Nickelback">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/nickelback.jpeg" alt="banner of Nickelback"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/nickelback.jpeg"
+          alt="banner of Nickelback"
+        />
         <h2 class="band__name">Nickelback</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=33" alt="Mobb Deep">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/mobbDeep.jpeg" alt="banner of Mobb Deep"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/mobbDeep.jpeg"
+          alt="banner of Mobb Deep"
+        />
         <h2 class="band__name">Mobb Deep</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=34" alt="Guns N&#39; Roses">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/gunsNRoses.jpeg" alt="banner of Guns N&#39; Roses"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/gunsNRoses.jpeg"
+          alt="banner of Guns N&#39; Roses"
+        />
         <h2 class="band__name">Guns N&#39; Roses</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=35" alt="NWA">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/nwa.jpeg" alt="banner of NWA"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/nwa.jpeg"
+          alt="banner of NWA"
+        />
         <h2 class="band__name">NWA</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=36" alt="U2">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/u2.jpeg" alt="banner of U2"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/u2.jpeg"
+          alt="banner of U2"
+        />
         <h2 class="band__name">U2</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=37" alt="Arctic Monkeys">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/arcticmonkeys.jpeg" alt="banner of Arctic Monkeys"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/arcticmonkeys.jpeg"
+          alt="banner of Arctic Monkeys"
+        />
         <h2 class="band__name">Arctic Monkeys</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=38" alt="Fall Out Boy">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/fallOutBoy.jpeg" alt="banner of Fall Out Boy"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/fallOutBoy.jpeg"
+          alt="banner of Fall Out Boy"
+        />
         <h2 class="band__name">Fall Out Boy</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=39" alt="Gorillaz">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/gorillaz.jpeg" alt="banner of Gorillaz"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/gorillaz.jpeg"
+          alt="banner of Gorillaz"
+        />
         <h2 class="band__name">Gorillaz</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=40" alt="Eagles">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/eagles.jpeg" alt="banner of Eagles"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/eagles.jpeg"
+          alt="banner of Eagles"
+        />
         <h2 class="band__name">Eagles</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=41" alt="Linkin Park">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/linkinpark.jpeg" alt="banner of Linkin Park"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/linkinpark.jpeg"
+          alt="banner of Linkin Park"
+        />
         <h2 class="band__name">Linkin Park</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=42" alt="Red Hot Chili Peppers">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/redhotchilipeppers.jpeg" alt="banner of Red Hot Chili Peppers"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/redhotchilipeppers.jpeg"
+          alt="banner of Red Hot Chili Peppers"
+        />
         <h2 class="band__name">Red Hot Chili Peppers</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=43" alt="Eminem">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/eminem.jpeg" alt="banner of Eminem"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/eminem.jpeg"
+          alt="banner of Eminem"
+        />
         <h2 class="band__name">Eminem</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=44" alt="Green Day">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/greenday.jpeg" alt="banner of Green Day"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/greenday.jpeg"
+          alt="banner of Green Day"
+        />
         <h2 class="band__name">Green Day</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=45" alt="Metallica">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/metallica.jpeg" alt="banner of Metallica"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/metallica.jpeg"
+          alt="banner of Metallica"
+        />
         <h2 class="band__name">Metallica</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=46" alt="Coldplay">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/coldplay.jpeg" alt="banner of Coldplay"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/coldplay.jpeg"
+          alt="banner of Coldplay"
+        />
         <h2 class="band__name">Coldplay</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=47" alt="Maroon 5">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/maroon5.jpeg" alt="banner of Maroon 5"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/maroon5.jpeg"
+          alt="banner of Maroon 5"
+        />
         <h2 class="band__name">Maroon 5</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=48" alt="Twenty One Pilots">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/twentyonepilots.jpeg" alt="banner of Twenty One Pilots"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/twentyonepilots.jpeg"
+          alt="banner of Twenty One Pilots"
+        />
         <h2 class="band__name">Twenty One Pilots</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=49" alt="The Rolling Stones">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/therollingstones.jpeg" alt="banner of The Rolling Stones"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/therollingstones.jpeg"
+          alt="banner of The Rolling Stones"
+        />
         <h2 class="band__name">The Rolling Stones</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=50" alt="Muse">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/muse.jpeg" alt="banner of Muse"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/muse.jpeg"
+          alt="banner of Muse"
+        />
         <h2 class="band__name">Muse</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=51" alt="Foo Fighters">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/foofighters.jpeg" alt="banner of Foo Fighters"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/foofighters.jpeg"
+          alt="banner of Foo Fighters"
+        />
         <h2 class="band__name">Foo Fighters</h2>
       </a>
-      
+
       <a class="band" href="/artist?id=52" alt="The Chainsmokers">
-        <img class="band__banner" src="https://groupietrackers.herokuapp.com/api/images/thechainsmokers.jpeg" alt="banner of The Chainsmokers"/>
+        <img
+          class="band__banner"
+          src="https://groupietrackers.herokuapp.com/api/images/thechainsmokers.jpeg"
+          alt="banner of The Chainsmokers"
+        />
         <h2 class="band__name">The Chainsmokers</h2>
       </a>
-      
     </section>
-    
+
     <footer class="footer">
       <div class="container contfooter">
         <div class="footer__contacnt">
-          <p class="footer__hub">Github / </p>
-          <a class="footer__link" href="https://github.com/GoArtyom" target="_blank">GoArtyom</a>
-          <a class="footer__link" href="https://github.com/grenkoff" target="_blank">grenkoff</a>
-          <a class="footer__link" href="https://github.com/NordStream777" target="_blank">NordStream777</a>
+          <p class="footer__hub">Github /</p>
+          <a
+            class="footer__link"
+            href="https://github.com/GoArtyom"
+            target="_blank"
+            >GoArtyom</a
+          >
+          <a
+            class="footer__link"
+            href="https://github.com/grenkoff"
+            target="_blank"
+            >grenkoff</a
+          >
+          <a
+            class="footer__link"
+            href="https://github.com/NordStream777"
+            target="_blank"
+            >NordStream777</a
+          >
         </div>
         <div class="footer__main">
           <p class="footer__art">&#123; 2023 Artyom Echeistov &#125;</p>
         </div>
         <div class="footer__last">
-          <a class="footer__link" href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/README.md" target="_blank">About project</a>
-          <a class="footer__link" href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/audit/README.md" target="_blank">Helps</a>
-          <p class="footer__hub">// MD 2023 </p>
+          <a
+            class="footer__link"
+            href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/README.md"
+            target="_blank"
+            >About project</a
+          >
+          <a
+            class="footer__link"
+            href="https://github.com/01-edu/public/blob/master/subjects/groupie-tracker/audit/README.md"
+            target="_blank"
+            >Helps</a
+          >
+          <p class="footer__hub">// MD 2023</p>
         </div>
       </div>
     </footer>
 
     <script>
-      window.onload = function(){
-          document.body.classList.add('loaded_hiding');
-          window.setTimeout(function () {
-          document.body.classList.add('loaded');
-          document.body.classList.remove('loaded_hiding');
-          }, 500);
-          
-          slideOne();
-          slideTwo();
-          slideThree();
-          slideFour();
-      }
+      window.onload = function () {
+        document.body.classList.add("loaded_hiding");
+        window.setTimeout(function () {
+          document.body.classList.add("loaded");
+          document.body.classList.remove("loaded_hiding");
+        }, 500);
+
+        slideOne();
+        slideTwo();
+        slideThree();
+        slideFour();
+      };
 
       let sliderOne = document.getElementById("slider-1");
       let sliderTwo = document.getElementById("slider-2");
@@ -445,27 +731,28 @@
       let sliderTrack = document.querySelector(".create_date-track");
       let sliderMaxValue = parseInt(sliderOne.max);
 
-      function slideOne(){
-          if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
-              sliderOne.value = parseInt(sliderTwo.value) - minGap;
-          }
-          displayValOne.textContent = sliderOne.value;
-          fillColor();
+      function slideOne() {
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          sliderOne.value = parseInt(sliderTwo.value) - minGap;
+        }
+        displayValOne.textContent = sliderOne.value;
+        fillColor();
       }
-      function slideTwo(){
-          if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
-              sliderTwo.value = parseInt(sliderOne.value) + minGap;
-          }
-          displayValTwo.textContent = sliderTwo.value;
-          fillColor();
+      function slideTwo() {
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          sliderTwo.value = parseInt(sliderOne.value) + minGap;
+        }
+        displayValTwo.textContent = sliderTwo.value;
+        fillColor();
       }
       function fillColor() {
-      const range = sliderMaxValue - parseInt(sliderOne.min);
-      const percent1 = ((sliderOne.value - parseInt(sliderOne.min)) / range) * 100;
-      const percent2 = ((sliderTwo.value - parseInt(sliderOne.min)) / range) * 100;
-      sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #272b33 ${percent1}%, #272b33 ${percent2}%, #dadae5 ${percent2}%)`;
+        const range = sliderMaxValue - parseInt(sliderOne.min);
+        const percent1 =
+          ((sliderOne.value - parseInt(sliderOne.min)) / range) * 100;
+        const percent2 =
+          ((sliderTwo.value - parseInt(sliderOne.min)) / range) * 100;
+        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #272b33 ${percent1}%, #272b33 ${percent2}%, #dadae5 ${percent2}%)`;
       }
-
 
       // ------------------------------------------------------------------------------------
 
@@ -477,25 +764,33 @@
       let sliderTrackAlbum = document.querySelector(".first_album-track");
       let sliderMaxValueAlbum = document.getElementById("slider-3").max;
 
-      function slideThree(){
-          if(parseInt(sliderFour.value) - parseInt(sliderThree.value) <= minGapAlbum){
-              sliderThree.value = parseInt(sliderFour.value) - minGapAlbum;
-          }
-          displayValThree.textContent = sliderThree.value;
-          fillColorAlbum();
+      function slideThree() {
+        if (
+          parseInt(sliderFour.value) - parseInt(sliderThree.value) <=
+          minGapAlbum
+        ) {
+          sliderThree.value = parseInt(sliderFour.value) - minGapAlbum;
+        }
+        displayValThree.textContent = sliderThree.value;
+        fillColorAlbum();
       }
-      function slideFour(){
-          if(parseInt(sliderFour.value) - parseInt(sliderThree.value) <= minGapAlbum){
-              sliderFour.value = parseInt(sliderThree.value) + minGapAlbum;
-          }
-          displayValFour.textContent = sliderFour.value;
-          fillColorAlbum();
+      function slideFour() {
+        if (
+          parseInt(sliderFour.value) - parseInt(sliderThree.value) <=
+          minGapAlbum
+        ) {
+          sliderFour.value = parseInt(sliderThree.value) + minGapAlbum;
+        }
+        displayValFour.textContent = sliderFour.value;
+        fillColorAlbum();
       }
-      function fillColorAlbum(){
-      const range = sliderMaxValueAlbum - parseInt(sliderThree.min);
-      const percent1 = ((sliderThree.value - parseInt(sliderThree.min)) / range) * 100;
-      const percent2 = ((sliderFour.value - parseInt(sliderThree.min)) / range) * 100;
-      sliderTrackAlbum.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #272b33 ${percent1}%, #272b33 ${percent2}%, #dadae5 ${percent2}%)`;
+      function fillColorAlbum() {
+        const range = sliderMaxValueAlbum - parseInt(sliderThree.min);
+        const percent1 =
+          ((sliderThree.value - parseInt(sliderThree.min)) / range) * 100;
+        const percent2 =
+          ((sliderFour.value - parseInt(sliderThree.min)) / range) * 100;
+        sliderTrackAlbum.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #272b33 ${percent1}%, #272b33 ${percent2}%, #dadae5 ${percent2}%)`;
       }
       // ------------------------------------------------------------------------------------
       const ul = document.querySelector(".ul");
@@ -509,51 +804,48 @@
       createTag();
 
       function countTags() {
-      input.focus();
-      tagNumb.innerText =   tags.length;
+        input.focus();
+        tagNumb.innerText = tags.length;
       }
 
       function createTag() {
           ul.querySelectorAll("li").forEach((li) => li.remove());
           tags.slice().reverse().forEach((tag) => {
-              let liTag = `<li>${tag} <input type="checkbox" checked value="${tag}" name="locations" readonly> <i class="uit uit-multiply" onclick="remove(this, '${tag}')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<path d="M13.5 3.25H10.75V2.5C10.75 2.16848 10.6183 1.85054 10.3839 1.61612C10.1495 1.3817 9.83152 1.25 9.5 1.25H6.5C6.16848 1.25 5.85054 1.3817 5.61612 1.61612C5.3817 1.85054 5.25 2.16848 5.25 2.5V3.25H2.5C2.4337 3.25 2.37011 3.27634 2.32322 3.32322C2.27634 3.37011 2.25 3.4337 2.25 3.5C2.25 3.5663 2.27634 3.62989 2.32322 3.67678C2.37011 3.72366 2.4337 3.75 2.5 3.75H3.25V13C3.25 13.1989 3.32902 13.3897 3.46967 13.5303C3.61032 13.671 3.80109 13.75 4 13.75H12C12.1989 13.75 12.3897 13.671 12.5303 13.5303C12.671 13.3897 12.75 13.1989 12.75 13V3.75H13.5C13.5663 3.75 13.6299 3.72366 13.6768 3.67678C13.7237 3.62989 13.75 3.5663 13.75 3.5C13.75 3.4337 13.7237 3.37011 13.6768 3.32322C13.6299 3.27634 13.5663 3.25 13.5 3.25ZM5.75 2.5C5.75 2.30109 5.82902 2.11032 5.96967 1.96967C6.11032 1.82902 6.30109 1.75 6.5 1.75H9.5C9.69891 1.75 9.88968 1.82902 10.0303 1.96967C10.171 2.11032 10.25 2.30109 10.25 2.5V3.25H5.75V2.5ZM12.25 13C12.25 13.0663 12.2237 13.1299 12.1768 13.1768C12.1299 13.2237 12.0663 13.25 12 13.25H4C3.9337 13.25 3.87011 13.2237 3.82322 13.1768C3.77634 13.1299 3.75 13.0663 3.75 13V3.75H12.25V13ZM6.75 6.5V10.5C6.75 10.5663 6.72366 10.6299 6.67678 10.6768C6.62989 10.7237 6.5663 10.75 6.5 10.75C6.4337 10.75 6.37011 10.7237 6.32322 10.6768C6.27634 10.6299 6.25 10.5663 6.25 10.5V6.5C6.25 6.4337 6.27634 6.37011 6.32322 6.32322C6.37011 6.27634 6.4337 6.25 6.5 6.25C6.5663 6.25 6.62989 6.27634 6.67678 6.32322C6.72366 6.37011 6.75 6.4337 6.75 6.5ZM9.75 6.5V10.5C9.75 10.5663 9.72366 10.6299 9.67678 10.6768C9.62989 10.7237 9.5663 10.75 9.5 10.75C9.4337 10.75 9.37011 10.7237 9.32322 10.6768C9.27634 10.6299 9.25 10.5663 9.25 10.5V6.5C9.25 6.4337 9.27634 6.37011 9.32322 6.32322C9.37011 6.27634 9.4337 6.25 9.5 6.25C9.5663 6.25 9.62989 6.27634 9.67678 6.32322C9.72366 6.37011 9.75 6.4337 9.75 6.5Z" fill="black"/>
-</svg></i></li>`;
+              let liTag = `<li>${tag} <input type="checkbox" checked value="${tag}" name="locations" readonly> <i class="uit uit-multiply" onclick="remove(this, '${tag}')"><svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.99997 8H6.5M6.5 8V18C6.5 19.1046 7.39543 20 8.5 20H15.5C16.6046 20 17.5 19.1046 17.5 18V8M6.5 8H17.5M17.5 8H19M9 5H15M9.99997 11.5V16.5M14 11.5V16.5" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"/></svg></i></li>`;
               ul.insertAdjacentHTML("afterbegin", liTag);
           });
-          countTags();
+        countTags();
       }
 
       function remove(element, tag) {
-      let index = tags.indexOf(tag);
-      tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
-      element.parentElement.remove();
-      countTags();
+        let index = tags.indexOf(tag);
+        tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+        element.parentElement.remove();
+        countTags();
       }
 
       function addTagByButton() {
-      let tag = input.value.replace(/\s+/g, " ");
-      if (tag.length > 1 && !tags.includes(tag)) {
+        let tag = input.value.replace(/\s+/g, " ");
+        if (tag.length > 1 && !tags.includes(tag)) {
           if (tags.length < 10) {
-          //   tag.split(",").forEach((tag) => {
-              tags.push(tag);
-              createTag();
-          //   });
+            //   tag.split(",").forEach((tag) => {
+            tags.push(tag);
+            createTag();
+            //   });
           }
-      }
-      input.value = "";
+        }
+        input.value = "";
       }
 
       const removeBtn = document.querySelector(".details button");
       removeBtn.addEventListener("click", () => {
-      tags.length = 0;
-      ul.querySelectorAll("li").forEach((li) => li.remove());
-      countTags();
+        tags.length = 0;
+        ul.querySelectorAll("li").forEach((li) => li.remove());
+        countTags();
       });
 
       const addButton = document.querySelector(".form__search button");
       addButton.addEventListener("click", addTagByButton);
-  </script>
+    </script>
   </body>
 </html>
-
