@@ -150,8 +150,7 @@ div{
     border-left: none;
     border-right: none;
     border-bottom: 1px solid #1E1C1C;
-    margin: 0 3px;
-    width: 70%;
+    width: 144px;
     border-radius: 0%;
     outline: none;
 
@@ -579,7 +578,7 @@ label span{
 
 .wrapper :where(.title, li, li i, .details){
     display: flex;
-    align-items: center;
+    align-items:center;
   }
   .wrapper .content{
     margin: 10px 0;
@@ -590,30 +589,34 @@ label span{
   .content ul{
     display: flex;
     flex-wrap: wrap;
+    gap: 5px;
     padding: 0;
-    margin: 12px 0;
+    height: 22px;
     border-radius: 5px;
     padding-left: 1px;
   }
   .content ul  li{
-    color: #333;
     margin-right: 10px;
+    justify-content: space-between;
     list-style: none;
-    border-radius: 5px;
-    background: #F2F2F2;
-    padding: 5px 8px 5px 10px;
-    border: 1px solid #e3e1e1;
+    gap: 4px;
+    padding-left: 2px;
+    border: 1px solid #1E1C1C;
+    width: max-content;
+    margin: 0 0 0 0;
+    font-size: 12px;
+    height: 100%;
+    line-height: 12px;
   }
+
   .content ul li i{
     height: 20px;
     width: 20px;
-    color: #808080;
-    margin-left: 8px;
+    background-color: white;
     font-size: 12px;
     cursor: pointer;
-    border-radius: 50%;
-    background: #dfdfdf;
     justify-content: center;
+    border-left: 1px solid #1E1C1C;
   }
   .content ul input{
     flex: 1;
