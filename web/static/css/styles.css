@@ -691,8 +691,16 @@ label span {
     }
 
     .wrapper_first{
-        flex-direction: column;
-        width: max-content;
+        /* flex-direction: column; */
+        width: auto;
+        justify-content: center;
+        align-items:center;
+    }
+    .filter {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        padding: 25px 25px;
     }
 
 }
@@ -734,6 +742,10 @@ label span {
 
         text-align: center;
 
+    }
+
+    .wrapper_second{
+        flex-direction: column;
     }
 
 }
