@@ -13,6 +13,8 @@
         <div class="header__logo">
           <p>// music group</p>
         </div>
+
+        <div class="header__center">
         <div class="header__main">
           <a class="header__alm" href="https://alem.school/" target="_blank"
             >AL&#123;M</a
@@ -29,15 +31,9 @@
           <!-- search end -->
           <p class="header__filtres">filters</p>
         </div>
-        <div class="header__home">
-          <a href="#">home</a>
-        </div>
-      </div>
-    </header>
 
-    <div class="line"></div>
 
-    <!-- filter start -->
+         <!-- filter start -->
     <div class="pt">
       <div class="container filter">
         <form action="/filters/" method="GET">
@@ -194,6 +190,16 @@
       </div>
     </div>
     <!-- filter end -->
+  </div>
+
+        <div class="header__home">
+          <a href="#">home</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="line"></div>
+
 
     <section class="main__content container">
       <a class="band" href="/artist?id=1" alt="Queen">
@@ -846,6 +852,15 @@
 
       const addButton = document.querySelector(".form__search button");
       addButton.addEventListener("click", addTagByButton);
+
+      const filter = document.querySelector(".header__filtres");
+      const blockfilter = document.querySelector('.pt');
+      filter.addEventListener('click', ()=>{
+        if (blockfilter.style.display == "block"){
+          blockfilter.style.display = "none"
+        } else{
+        blockfilter.style.display = "block";
+      }})
     </script>
   </body>
 </html>

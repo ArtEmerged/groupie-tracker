@@ -113,7 +113,7 @@ div {
 .header__div {
     display: flex;
     justify-content: space-between;
-    height: 106px;
+    height: max-content;
     background-color: white;
     align-items: flex-end, baseline;
 
@@ -126,6 +126,16 @@ div {
     background-color: white;
 }
 
+.header__logo p {
+    line-height: 22px;
+    white-space: nowrap;
+
+}
+.header__center{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
 .header__main {
     display: flex;
     justify-content: space-between;
@@ -403,17 +413,15 @@ div {
 /* filter */
 
 .pt {
-    padding-left: 95px;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
+    display: none;
 }
 
 .filter {
     width: 845px;
     margin: 0 auto;
     padding: 0;
-    border: 1px solid;
-    border-top: none;
     padding: 25px 118px;
 }
 
@@ -680,6 +688,11 @@ label span {
 @media (max-width: 1199px) {
     .contfooter {
         justify-content: space-around;
+    }
+
+    .wrapper_first{
+        flex-direction: column;
+        width: max-content;
     }
 
 }
