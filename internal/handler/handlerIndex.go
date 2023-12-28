@@ -22,10 +22,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	artistsPage = createDateForSearch(artistsPage, relations)
-	if models.InitErr != nil {
-		errPage(w, http.StatusInternalServerError) // 500
-		return
-	}
+
 	err = models.Tpl.ExecuteTemplate(w, "index.html", &artistsPage)
 	if err != nil {
 		errPage(w, http.StatusInternalServerError) // 500

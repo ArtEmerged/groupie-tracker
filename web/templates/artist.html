@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GROUPIE-TRACKER</title>
     <link rel="stylesheet" href="../static/css/styles.css" />
-
+    <link rel="shortcut icon" href="/static/img/icons8.png" type="image/x-icon">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=dfe6e27c-932d-4e77-9f41-1d30f9cdfcf8&lang=ru_RU"></script>
 
     <script>
@@ -15,18 +15,22 @@
               document.getElementById('map'),
               {
                   center: [37.588144, 55.733842],
-                  zoom: 2
-              }
-          );
+                  zoom: 3
+              },{
+                  minZoom: 2,
+                  maxZoom: 10
+              });
           {{range $v := .Markers}}
           map.geoObjects.add(new ymaps.Placemark([{{$v.Y}}, {{$v.X}}],{balloonContent: "{{$v.Country}}/{{$v.City}}",},{draggable: true,}));
           // Второй маркер
           {{end}}
           map.controls.remove('searchControl');
           map.controls.remove('trafficControl');
-          map.controls.remove('layersControl');
+          map.controls.remove('typeSelector');
           map.controls.remove('zoomControl');
           map.controls.remove('geolocationControl');
+          map.controls.remove('rulerControl');
+          map.controls.remove('fullscreenControl');
       })
     </script>
   </head>
@@ -83,7 +87,7 @@
           </ul>
         </div>
       </div>
-      <div id="map" class="map"></div>
+      <div id="map" class="mapBorder"></div>
     </section>
     {{end}}
     <footer class="footer">

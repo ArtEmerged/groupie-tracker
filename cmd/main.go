@@ -1,7 +1,13 @@
 package main
 
-import "groupie-tracker/internal"
+import (
+	"flag"
+
+	"groupie-tracker/internal"
+)
 
 func main() {
-	internal.Running()
+	port := flag.String("port", "8081", "USAGE --port=8081")
+
+	internal.Running(*port)
 }

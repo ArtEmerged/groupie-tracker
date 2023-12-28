@@ -22,10 +22,7 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request) {
 		errPage(w, http.StatusInternalServerError) // 500
 		return
 	}
-	if models.InitErr != nil {
-		errPage(w, http.StatusInternalServerError) // 500
-		return
-	}
+
 	id, err := groupie.GetID(artistsPage, r.FormValue("id"))
 	if err != nil {
 		errPage(w, http.StatusNotFound) // 404

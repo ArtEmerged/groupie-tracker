@@ -10,18 +10,27 @@ import (
 )
 
 func init() {
-	temp, initErr := template.ParseGlob("./web/templates/*")
-	models.Tpl = template.Must(temp, initErr)
+	temp, err := template.ParseGlob("./web/templates/*.html")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	models.Tpl = temp
 }
 
-func Running() {
+func Running(port string) {
 	fileServer := http.FileServer(http.Dir("./web/static/"))
+
 	http.Handle("/static/", http.StripPrefix("/static/", fileServer))
+
 	http.HandleFunc("/", handler.IndexHandler)
 	http.HandleFunc("/artist", handler.ArtistHandler)
 	http.HandleFunc("/filters/", handler.FilterHandler)
-	log.Printf("Listening on: http://%s:%s/\n", models.Address, models.Port)
-	err := http.ListenAndServe(":"+models.Port, nil)
+
+	log.Printf("Listening on: http://localhost:%s/\n", port)
+	
+	err := http.ListenAndServe(":"+port, nil)
+
+
 	if err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
