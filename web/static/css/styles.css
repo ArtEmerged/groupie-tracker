@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
@@ -127,7 +128,6 @@ div {
 }
 
 .header__logo p {
-    /* line-height: 22px; */
     white-space: nowrap;
 
 }
@@ -158,11 +158,6 @@ div {
     flex-grow: 0;
     border-left: 1px solid;
     padding-top: 25px;
-}
-
-.header__home a {
-    /* line-height: 22px; */
-
 }
 
 .search {
@@ -205,6 +200,12 @@ div {
     margin-top: 64px;
 }
 
+.header__filtres:hover,
+.header__filtres:focus {
+    color: rgb(197, 21, 159);
+    text-decoration: underline solid;
+}
+
 .line {
     height: 1px;
     background-color: #1E1C1C;
@@ -230,7 +231,6 @@ div {
 
 .line__header {
     display: block;
-    /* margin-top: 52px; */
     height: 1px;
     width: 40%;
     background-color: #1E1C1C;
@@ -506,7 +506,7 @@ input[type="range"] {
     height: 2px;
     position: absolute;
     margin: auto;
-    top: -8px;
+    /* top: -8px; */
     bottom: 0;
     border-radius: 5px;
 }
@@ -518,14 +518,29 @@ input[type="range"]::-webkit-slider-thumb {
     width: 1em;
     background-color: white;
     cursor: pointer;
-    margin-top: -9px;
+    margin-top: -1px;
     pointer-events: auto;
-    /* border-radius: 50%; */
+    border: 1px solid;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    border-radius: 0;
+    height: 0.9em;
+    width: 0.9em;
+    background-color: white;
+    cursor: pointer;
+    pointer-events: auto;
     border: 1px solid;
 }
 
 
 input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #1E1C1C;
+    ;
+}
+
+input[type="range"]:active::-moz-range-thumb {
     background-color: #1E1C1C;
     ;
 }
@@ -689,10 +704,6 @@ label span {
         max-width: 1140px;
     }
 
-    /* .line__header{
-        margin-left: 5vw;
-    } */
-
     .main {
         box-sizing: content-box;
     }
@@ -705,7 +716,6 @@ label span {
     }
 
     .wrapper_first {
-        /* flex-direction: column; */
         width: auto;
         justify-content: center;
         align-items: flex-start;
@@ -910,6 +920,7 @@ label span {
         margin-bottom: 10px;
     }
 
+
     /* main */
 
 
@@ -1000,10 +1011,6 @@ label span {
     }
 
 }
-
-
-
-
 
 
 /* search */
