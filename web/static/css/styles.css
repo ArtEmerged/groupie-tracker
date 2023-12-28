@@ -127,7 +127,7 @@ div {
 }
 
 .header__logo p {
-    line-height: 22px;
+    /* line-height: 22px; */
     white-space: nowrap;
 
 }
@@ -158,6 +158,11 @@ div {
     padding-top: 25px;
 }
 
+.header__home  a {
+    /* line-height: 22px; */
+    
+}
+
 .search {
     height: 15px;
     border-top: none;
@@ -172,15 +177,18 @@ div {
 
 #myInput{
     border:none;
+    width: 50%;
 }
 
 .headersvg {
     width: 16px;
     height: 17px;
     background-image: url(../../static/img/Vector.svg);
+    background-repeat: no-repeat;
     margin-left: 7px;
     border: none;
     background-color: white;
+
 }
 
 .header__alm {
@@ -694,8 +702,13 @@ label span {
         /* flex-direction: column; */
         width: auto;
         justify-content: center;
-        align-items:center;
+        align-items:flex-start;
     }
+
+    .wrapper_second{
+        justify-content: center;
+    }
+
     .filter {
         width: 100%;
         margin: 0 auto;
@@ -744,9 +757,33 @@ label span {
 
     }
 
-    .wrapper_second{
-        flex-direction: column;
+    .wrapper_first{
+        gap:15px;
     }
+
+    .wrapper_second{
+        justify-content: center;
+        gap:30px;
+    }
+
+}
+
+@media (max-width: 890px) {
+    .filter{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .wrapper_first{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .members__items {
+        gap:10px;
+    }
+
 
 }
 
@@ -757,12 +794,37 @@ label span {
 
     .header__logo {
         padding-top: 30px;
+        padding-left: 14px;
+        padding-right: 14px;
+        white-space:normal; 
+
+    }
+
+    .header__home{
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .header__home a{
+        font-size: 16px;
+        line-height: 20px;
     }
 
     .header__logo p {
         font-size: 16px;
         line-height: 20px;
+        white-space: normal;
 
+    }
+
+    .wrapper_second{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .members{
+        flex-direction: column;
     }
 
 
@@ -940,6 +1002,7 @@ label span {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 80%;
 }
 
 .header__search-results-wrapper {
