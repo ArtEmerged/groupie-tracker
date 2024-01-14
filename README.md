@@ -1,4 +1,8 @@
+![01-edu-system-blue](https://raw.githubusercontent.com/GoArtyom/study/1a66b22c5b511ccce94b582481a45dfd7f001d3a/alem.svg)
+
 # Project `groupie-tracker`
+
+![01-edu-system-blue](./web/static/img/preview.gif)
 
 ## Description
 
@@ -20,23 +24,20 @@ Given all this you should build a user friendly website where you can display th
 
 ### How to install
 
-```
-git clone git@git.01.alem.school:aecheist/groupie-tracker.git && cd groupie-tracker/
+```bash
+git clone git@github.com:ArtEmerged/groupie-tracker.git && cd groupie-tracker/
 ```
 
 ### How to go run
 
+```bash
+go run cmd/main.go
 ```
-go run cmd/api/main.go
-```
 
-and click on http://localhost:8080/ (ctrl + click)
-
-### Audit link
-
-* <a href="https://github.com/01-edu/public/tree/master/subjects/groupie-tracker/audit" target="_blank">groupie-tracker audit</a>
+and click on http://localhost:8081/ (ctrl + click)
 
 ## Autors
 Follow us on:
-* <a href="https://github.com/GoArtyom" target="_blank">GitHub.com/GoArtyom</a>
+* <a href="https://github.com/ArtEmerged" target="_blank">GitHub.com/ArtEmerged</a>
+* <a href="https://github.com/NordStream777" target="_blank">GitHub.com/NordStream777</a>
 * <a href="https://github.com/grenkoff" target="_blank">GitHub.com/grenkoff</a>
